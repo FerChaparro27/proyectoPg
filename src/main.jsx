@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import Home from './Home'
-import App from './App'
+import SignIn from './SignIn'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
@@ -15,7 +15,7 @@ function Main() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Login" element={<App />} />
+        <Route path="/SignIn" element={<SignIn />} />
       </Routes>
     </BrowserRouter>
   );
