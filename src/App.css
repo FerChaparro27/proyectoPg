@@ -1,0 +1,65 @@
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+}
+
+.logoBloqueo {
+    margin-bottom: 20px;
+    color: white;
+    background-color: palevioletred;
+    height: 60px;
+    width: 60px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.textoLogueo {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 25px;
+    margin-top: -30px;
+}
+
+.boxInput {
+    display: flex;
+    flex-direction: column;
+}
+
+.boxCheck {
+    margin-left: -260px;
+}
+
+.checkBoxLogin {
+    display: flex;
+    align-items: center;
+}
+
+.ingresarButton {
+    width: 500px;
+}
+
+.questionsRoots ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 50px;
+    padding: 0;
+    color: #757de8;
+}
+
+
+.questionsRoots li {
+    text-decoration: underline;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.questionsRoots li:hover {
+    color: #3f51b5;
+}
