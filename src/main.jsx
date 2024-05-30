@@ -1,16 +1,26 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Home from './Home.jsx'
-import '@fontsource/roboto/300.css';
-import '@fontsource/roboto/400.css';
-import '@fontsource/roboto/500.css';
-import '@fontsource/roboto/700.css';
+import Home from './Home'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 
+function Main() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+      </Routes>
+    </BrowserRouter>
+  );
+}
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+
+root.render(
   <React.StrictMode>
-    <CssBaseline />
-    < Home/>
-  </React.StrictMode>,
-)
+    <Main/>
+  </React.StrictMode>
+);
+
+
