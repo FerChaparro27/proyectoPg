@@ -5,17 +5,27 @@ import TextField from '@mui/material/TextField';
 import Checkbox from '@mui/material/Checkbox';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
+import {useNavigate} from 'react-router-dom'
+import { Typography } from "@mui/material";
 
 import "./SignIn.css"
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
-const App = () => {
+const SignIn = () => {
+
+    const navigate = useNavigate()  //Esto es un hook que necesita de un elemento funcional
+                                    //x eso se pone adentro de la app
+
+    const touch=()=>{
+        navigate('/RecoverPassword')
+    }
+
     return (
         <section>
 
-            <div className="logoBloqueo">
-                <LockIcon />
+            <div>
+                <Typography variant="h1">3FT</Typography>
             </div>
 
             <div className="textoLogueo">
@@ -42,12 +52,12 @@ const App = () => {
             </div>
 
             <Stack spacing={2} direction="row">
-                <Button variant="contained" className='ingresarButton'>INGRESAR</Button>
+                <Button variant="contained" className='ingresarButton' onClick={touch}>INGRESAR</Button>
             </Stack>
 
             <div className="questionsRoots">
                 <ul>
-                    <li>¿Olvidaste tu contraseña?</li>
+                    <li onClick={touch}>¿Olvidaste tu contraseña?</li>
                     <li>¿No tienes una cuenta todavia?</li>
                 </ul>
             </div>
@@ -56,4 +66,4 @@ const App = () => {
     );
 }
 
-export default App;
+export default SignIn;
