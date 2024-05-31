@@ -5,7 +5,7 @@ import TextField from '@mui/material/TextField';
 import Checkbox from '@mui/material/Checkbox';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { Typography } from "@mui/material";
 
 import "./SignIn.css"
@@ -15,13 +15,17 @@ const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 const SignIn = () => {
 
     const navigate = useNavigate()  //Esto es un hook que necesita de un elemento funcional
-                                    //x eso se pone adentro de la app
+    //x eso se pone adentro de la app
 
-    const touch=()=>{
+    const touch = () => {
+        navigate('/Home')
+    }
+
+    const touchRecover = () => {
         navigate('/RecoverPassword')
     }
 
-    const touchRegister=()=>{
+    const touchRegister = () => {
         navigate('/Register')
     }
 
@@ -61,7 +65,7 @@ const SignIn = () => {
 
             <div className="questionsRoots">
                 <ul>
-                    <li onClick={touch}>¿Olvidaste tu contraseña?</li>
+                    <li onClick={touchRecover}>¿Olvidaste tu contraseña?</li>
                     <li onClick={touchRegister}>¿No tienes una cuenta todavia?</li>
                 </ul>
             </div>
