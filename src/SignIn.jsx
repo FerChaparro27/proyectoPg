@@ -21,6 +21,10 @@ const SignIn = () => {
         navigate('/RecoverPassword')
     }
 
+    const touchRegister=()=>{
+        navigate('/Register')
+    }
+
     return (
         <section>
 
@@ -58,7 +62,7 @@ const SignIn = () => {
             <div className="questionsRoots">
                 <ul>
                     <li onClick={touch}>¿Olvidaste tu contraseña?</li>
-                    <li>¿No tienes una cuenta todavia?</li>
+                    <li onClick={touchRegister}>¿No tienes una cuenta todavia?</li>
                 </ul>
             </div>
 

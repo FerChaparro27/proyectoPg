@@ -10,7 +10,7 @@ export default function Register (){
 
     const navigate = useNavigate()
 
-    const touchRegister=()=>{
+    const touchRecover=()=>{
         navigate('/')
     }
 
@@ -30,7 +30,7 @@ export default function Register (){
 
                 <div className="textoRegistro">
                     <p><b>Crear cuenta</b></p>
-                    <p>Ingrese su correo electronico para regsitrarse</p>
+                    <p>Ingrese su correo electronico para registrarse</p>
                 </div>
 
                 <Box
@@ -93,12 +93,12 @@ export default function Register (){
                 </div>
 
                 <div className="textoRegistro">
-                    <p><b>Tu cuenta se ha creado con éxito y hemos enviado un correo de verificación a tu Email</b></p>
+                    <p><b>Tu cuenta se ha creado con éxito y<br/> hemos enviado un correo de verificación a<br/> tu Email</b></p>
                 </div>
                 
                 <Stack spacing={2} direction="row">
                     {/* Dentro del button, el onclick se encarga de modificar el usestate del active section */}
-                    <Button variant="contained" className='ingresarButton' onClick={() => handleNext('touchRegister')}>Volver al inicio</Button>
+                    <Button variant="contained" className='ingresarButton' onClick={touchRecover}>Volver al inicio</Button>
                 </Stack>
 
             </section>
