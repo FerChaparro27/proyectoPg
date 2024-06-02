@@ -1,5 +1,4 @@
 import react from "react";
-import LockIcon from '@mui/icons-material/Lock';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Checkbox from '@mui/material/Checkbox';
@@ -30,7 +29,7 @@ const SignIn = () => {
     }
 
     return (
-        <section>
+        <section className="sectionSignIn">
 
             <div>
                 <Typography variant="h1">3FT</Typography>

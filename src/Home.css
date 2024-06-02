@@ -1,4 +1,4 @@
-section {
+.sectionHome {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -19,29 +19,20 @@ section {
 }
 
 .Botones {
-    
+
     position: relative;
     top: -200px
-    }
-      
-
-
-.GanaderiaButton{
-    width: 500px;
-    height: 300px;
-    
 }
 
-.AgriculturaButton{
+
+
+.GanaderiaButton {
+    width: 500px;
+    height: 300px;
+
+}
+
+.AgriculturaButton {
     width: 500px;
     height: 300px;
 }
-    
-
-
-
-
-    
-
-    
-

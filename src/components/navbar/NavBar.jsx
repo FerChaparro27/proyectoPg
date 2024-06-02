@@ -2,7 +2,6 @@ import { AppBar, Button, Drawer, IconButton, Toolbar, Typography, Box } from "@m
 import NavListDrawer from "./NavListDrawer";
 import { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu"
-import Flecha from '@mui/icons-material/KeyboardArrowDown';
 
 const navLinks = [
     {
