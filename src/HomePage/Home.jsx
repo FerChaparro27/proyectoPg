@@ -1,4 +1,4 @@
-import NavBar from "./components/navbar/NavBar.jsx"
+import NavBar from "../components/navbar/NavBar"
 import * as React from 'react';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';

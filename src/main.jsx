@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Home from './Home'
-import SignIn from './SignIn'
-import RecoverPassword from './RecoverPassword'
-import Register from './Register'
+import Home from './HomePage/Home'
+import SignIn from './Signin/SignIn'
+import RecoverPassword from './RecoverPassword/RecoverPassword'
+import Register from './Register/Register'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
