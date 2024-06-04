@@ -46,10 +46,10 @@ export default function RecoverPassword() {
                         <TextField id="outlined-basic" label="Correo Electronico" variant="outlined" required />
                     </Box>
 
-                    <Stack direction="row" className="stackButton">
-                        {/* Dentro del button, el onclick se encarga de modificar el usestate del active section */}
-                        <Button variant="contained" className='nextButton' onClick={() => handleNext('B')}>ENVIAR</Button>
-                    </Stack>
+
+                    {/* Dentro del button, el onclick se encarga de modificar el usestate del active section */}
+                    <Button variant="contained" className='nextButton' onClick={() => handleNext('B')}>ENVIAR</Button>
+
                 </section>
             )}
 
@@ -75,9 +75,9 @@ export default function RecoverPassword() {
                         <TextField id="outlined-basic" label="Codígo de verificación" variant="outlined" required />
                     </Box>
 
-                    <Stack direction="row" className="stackButtonB">
-                        <Button variant="contained" className='nextButton' onClick={() => handleNext('C')}>CONFIRMAR</Button>
-                    </Stack>
+
+                    <Button variant="contained" className='nextButton' onClick={() => handleNext('C')}>CONFIRMAR</Button>
+
                 </section>
             )}
 
@@ -117,9 +117,9 @@ export default function RecoverPassword() {
                         <TextField id="outlined-basic" label="Contraseña" variant="outlined" required type="password" />
                     </Box>
 
-                    <Stack direction="row" className="stackButton">
-                        <Button variant="contained" className='nextButton' onClick={() => handleNext('D')}>CONFIRMAR</Button>
-                    </Stack>
+
+                    <Button variant="contained" className='nextButton' onClick={() => handleNext('D')}>CONFIRMAR</Button>
+
 
                 </section>
             )}
@@ -134,9 +134,9 @@ export default function RecoverPassword() {
                         <p><b>Su contraseña ha sido restablecida</b></p>
                     </div>
 
-                    <Stack direction="row" className="stackButton">
-                        <Button variant="contained" className='nextButton' onClick={touchRecover}>INICIAR SESIÓN</Button>
-                    </Stack>
+
+                    <Button variant="contained" className='nextButton' onClick={touchRecover}>INICIAR SESIÓN</Button>
+
 
                 </section>
             )}
