@@ -15,20 +15,22 @@ function Home() {
 
             <section className="sectionHome">
 
-                <div>
-                    <h1 className="Bienvenida">Bienvenido usuario</h1>
-                </div>
+                <article>
+                    <div>
+                        <h1 className="Bienvenida">Bienvenido usuario</h1>
+                    </div>
 
-                <div>
-                    <h1 className="Eleccion">Seleccione el area a trabajar</h1>
-                </div>
+                    <div>
+                        <h1 className="Eleccion">Seleccione el area a trabajar</h1>
+                    </div>
+                </article>
 
                 <div className="Botones">
                     <Stack spacing={10} direction="row">
                         <Button variant="contained" className='GanaderiaButton' >GANADERIA</Button>
                         <Button variant="contained" className='AgriculturaButton' >AGRICULTURA</Button>
                     </Stack>
-                </div>
+                </div> 
 
             </section>
 

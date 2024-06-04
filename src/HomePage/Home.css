@@ -1,3 +1,4 @@
+
 .sectionHome {
     display: flex;
     flex-direction: column;
@@ -5,34 +6,16 @@
     align-items: center;
     text-align: center;
     height: 100vh;
-    margin-top: 120px;
+    margin-top: -80px;
 }
-
-.Bienvenida {
-    position: relative;
-    top: -300px
-}
-
-.Eleccion {
-    position: relative;
-    top: -300px
-}
-
-.Botones {
-
-    position: relative;
-    top: -200px
-}
-
-
 
 .GanaderiaButton {
-    width: 500px;
-    height: 300px;
+    width: 450px;
+    height: 250px;
 
 }
 
 .AgriculturaButton {
-    width: 500px;
-    height: 300px;
+    width: 450px;
+    height: 250px;
 }
