@@ -71,11 +71,11 @@ export default function RecoverPassword() {
                         }}
                         noValidate
                         autoComplete="off"
-                        className='boxInput'>
+                        className='boxInputSectionB'>
                         <TextField id="outlined-basic" label="Codígo de verificación" variant="outlined" required />
                     </Box>
 
-                    <Stack direction="row" className="stackButton">
+                    <Stack direction="row" className="stackButtonB">
                         <Button variant="contained" className='nextButton' onClick={() => handleNext('C')}>CONFIRMAR</Button>
                     </Stack>
                 </section>

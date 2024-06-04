@@ -8,8 +8,23 @@
     height: 100vh;
 }
 
+.recuperacionA,
+.recuperacionB,
+.recuperacionC,
+.recuperacionD{
+    display: grid;
+    grid-template-columns: repeat(1, auto);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
 .stackButton{
     margin-left: 8px;
+}
+
+.stackButtonB{
+    margin-left: 71px;
 }
 
 .nextButton{
