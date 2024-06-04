@@ -2,14 +2,23 @@ import NavBar from "../components/navbar/NavBar"
 import * as React from 'react';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-
-
+import { useNavigate } from "react-router-dom"
 import "./Home.css"
 
 function Home() {
 
-    return (
+    const navigate = useNavigate()
 
+    const IrGanaderia= () => {
+        navigate('/Ganaderia')
+    
+    }
+        const IrAgricultura= () => {
+        navigate('/Agricultura')
+    }
+        
+    return (
+        
         <main>
             <NavBar />
 
@@ -27,8 +36,8 @@ function Home() {
 
                 <div className="Botones">
                     <Stack spacing={10} direction="row">
-                        <Button variant="contained" className='GanaderiaButton' >GANADERIA</Button>
-                        <Button variant="contained" className='AgriculturaButton' >AGRICULTURA</Button>
+                        <Button variant="contained" className='GanaderiaButton' onClick={IrGanaderia} >GANADERIA</Button>
+                        <Button variant="contained" className='AgriculturaButton'onClick={IrAgricultura} >AGRICULTURA</Button>
                     </Stack>
                 </div> 
 
