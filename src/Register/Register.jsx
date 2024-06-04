@@ -45,10 +45,10 @@ export default function Register() {
                         <TextField id="registro-basic" label="Registrarse con correo" variant="outlined" required />
                     </Box>
 
-                    <Stack spacing={2} direction="row">
-                        {/* Dentro del button, el onclick se encarga de modificar el usestate del active section */}
-                        <Button variant="contained" className='ingresarButton' onClick={() => handleNext('B')}>REGISTRARSE</Button>
-                    </Stack>
+                   
+                    {/* Dentro del button, el onclick se encarga de modificar el usestate del active section */}
+                    <Button variant="contained" className='ingresarButton' onClick={() => handleNext('B')}>REGISTRARSE</Button>
+                
 
                 </section>
             )}
@@ -76,10 +76,10 @@ export default function Register() {
                         <TextField id="registro-basic3" label="Vuelva a ingresar su contraseña" variant="outlined" required type="password" />
                     </Box>
 
-                    <Stack spacing={2} direction="row">
-                        {/* Dentro del button, el onclick se encarga de modificar el usestate del active section */}
-                        <Button variant="contained" className='ingresarButton' onClick={() => handleNext('C')}>CONFIRMAR</Button>
-                    </Stack>
+                
+                    {/* Dentro del button, el onclick se encarga de modificar el usestate del active section */}
+                    <Button variant="contained" className='ingresarButton' onClick={() => handleNext('C')}>CONFIRMAR</Button>
+                
 
                     <div className="textoRegistro">
                         <p>Esto podría tardar varios minutos</p>
@@ -97,10 +97,10 @@ export default function Register() {
                         <p><b>Tu cuenta se ha creado con éxito y<br /> hemos enviado un correo de verificación a<br /> tu Email</b></p>
                     </div>
 
-                    <Stack spacing={2} direction="row">
-                        {/* Dentro del button, el onclick se encarga de modificar el usestate del active section */}
-                        <Button variant="contained" className='ingresarButton' onClick={touchRecover}>Volver al inicio</Button>
-                    </Stack>
+                
+                    {/* Dentro del button, el onclick se encarga de modificar el usestate del active section */}
+                    <Button variant="contained" className='ingresarButton' onClick={touchRecover}>Volver al inicio</Button>
+                    
 
                 </section>
             )}
