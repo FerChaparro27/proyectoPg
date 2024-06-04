@@ -48,7 +48,7 @@ export default function RecoverPassword() {
 
                     <Stack spacing={2} direction="row">
                         {/* Dentro del button, el onclick se encarga de modificar el usestate del active section */}
-                        <Button variant="contained" className='ingresarButton' onClick={() => handleNext('B')}>ENVIAR</Button>
+                        <Button variant="contained"  onClick={() => handleNext('B')}>ENVIAR</Button>
                     </Stack>
                 </section>
             )}
