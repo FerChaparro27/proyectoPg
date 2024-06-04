@@ -1,14 +1,19 @@
 import React from "react";
 import NavBar from "../components/navbar/NavBar";
-import DataSelect from "../components/navbar/dataSelect/dataSelect";
+import DataSelect from "C:/Users/usuario/Desktop/proyectoPg/src/components/dataSelect/dataSelect"
+import "./Breeding.css";
+import InformationAbout from "C:/Users/usuario/Desktop/proyectoPg/src/components/informationAbout/information.jsx"
+
 
 function Breeding() {
 
     return(
         <main>
             <NavBar/>
-            <DataSelect/>
-            <DataSelect/>
+            <div className="contenedor">
+                <DataSelect/>
+                <InformationAbout/>
+            </div>
         </main>
     )
 }
