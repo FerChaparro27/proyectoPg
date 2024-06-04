@@ -1,8 +1,8 @@
 import React from "react";
 import NavBar from "../components/navbar/NavBar";
-import DataSelect from "C:/Users/usuario/Desktop/proyectoPg/src/components/dataSelect/dataSelect"
+import DataSelect from "../components/dataSelect/dataSelect"
 import "./Breeding.css";
-import InformationAbout from "C:/Users/usuario/Desktop/proyectoPg/src/components/informationAbout/information.jsx"
+import InformationAbout from "../components/informationAbout/information.jsx"
 
 
 function Breeding() {
