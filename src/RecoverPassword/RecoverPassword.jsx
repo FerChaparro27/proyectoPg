@@ -3,6 +3,10 @@ import Box from "@mui/material/Box"
 import TextField from "@mui/material/TextField"
 import Stack from "@mui/material/Stack"
 import Button from "@mui/material/Button"
+import IconButton from '@mui/material/IconButton';
+import InputAdornment from '@mui/material/InputAdornment';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 import "./Recover.css"
@@ -20,7 +24,17 @@ export default function RecoverPassword() {
     const handleNext = (nextSection) => {
         setActiveSection(nextSection);
     };
-
+    
+    const [verContraseña1, setVerContraseña1] = useState(false);
+    const [verContraseña2, setVerContraseña2] = useState(false);
+    
+    const handleClickShowPassword1 = () => { 
+        setVerContraseña1(!verContraseña1); 
+    }
+        
+    const handleClickShowPassword2 = () => { 
+        setVerContraseña2(!verContraseña2); 
+    }
     return (
         <main className="mainRecuperacion">
             {/* Operador logico. Lo que dice es "Si * es igual a A entonces lo verifica como true y sigue" */}
@@ -99,7 +113,19 @@ export default function RecoverPassword() {
                         noValidate
                         autoComplete="off"
                         className='boxInput'>
-                        <TextField id="outlined-basic" label="Contraseña" variant="outlined" required type="password" />
+                        <TextField id="outlined-basic" label="Contraseña" variant="outlined" required type={verContraseña1 ? 'text' : 'password'}
+                        InputProps={{
+                            endAdornment: (
+                                <InputAdornment position="end">
+                                    <IconButton
+                                        onClick={handleClickShowPassword1}
+                                        edge="end">
+                                        {verContraseña1 ? <VisibilityOff /> : <Visibility />}
+                                    </IconButton> 
+                                </InputAdornment>
+                            ),
+                        }}
+                        />
                     </Box>
 
                     <div className="textoLogueo">
@@ -114,7 +140,19 @@ export default function RecoverPassword() {
                         noValidate
                         autoComplete="off"
                         className='boxInput'>
-                        <TextField id="outlined-basic" label="Contraseña" variant="outlined" required type="password" />
+                        <TextField id="outlined-basic" label="Contraseña" variant="outlined" required type={verContraseña2 ? 'text' : 'password'} 
+                        InputProps={{
+                            endAdornment: (
+                                <InputAdornment position="end">
+                                    <IconButton
+                                        onClick={handleClickShowPassword2}
+                                        edge="end">
+                                        {verContraseña2 ? <VisibilityOff /> : <Visibility />}
+                                    </IconButton> 
+                                </InputAdornment> 
+                            ),
+                        }}
+                        />
                     </Box>
 
 
