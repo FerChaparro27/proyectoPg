@@ -18,15 +18,15 @@ const SignIn = () => {
     const navigate = useNavigate(); // Esto es un hook que necesita de un elemento funcional
     
     const touch = () => {
-        navigate('/Home');
+        navigate('/home');
     }
 
     const touchRecover = () => {
-        navigate('/RecoverPassword');
+        navigate('/recover-password');
     }
 
     const touchRegister = () => {
-        navigate('/Register');
+        navigate('/register');
     }
   const [verContraseña, setVerContraseña] = useState(false); // Estado para manejar si ver la contraseña o no 
     const handleClickShowPassword = () => { //Funcion para al hacer click cambie el estado

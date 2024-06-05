@@ -10,11 +10,11 @@ function Home() {
     const navigate = useNavigate()
 
     const IrGanaderia= () => {
-        navigate('/Ganaderia')
+        navigate('/breeding')
     
     }
         const IrAgricultura= () => {
-        navigate('/Agricultura')
+        navigate('/farming')
     }
         
     return (
