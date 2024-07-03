@@ -15,6 +15,7 @@ class MainUser(models.Model):
     def __str__(self):
         return self.id
 
+
 class Instructor(models.Model):
     id = models.AutoField(primary_key=True)
     dni= models.CharField(max_length=8, default="")
@@ -40,6 +41,17 @@ class Clients(models.Model):
     location =  models.CharField(max_length=100, default="")
     gender = models.CharField(max_length=20, default="")
     
+    def __str__(self):
+        return self.id
+
+
+
+class Gym(models.Model):
+    id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=100, default="")
+    location = models.CharField(max_length=100, default="")
+    address = models.CharField(max_length=100, default="")
+
     def __str__(self):
         return self.id
 
