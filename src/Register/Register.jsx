@@ -1,8 +1,11 @@
 import { Typography } from "@mui/material"
 import Box from "@mui/material/Box"
 import TextField from "@mui/material/TextField"
-import Stack from "@mui/material/Stack"
 import Button from "@mui/material/Button"
+import IconButton from '@mui/material/IconButton';
+import InputAdornment from '@mui/material/InputAdornment';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import { useNavigate } from "react-router-dom"
 import { useState } from "react"
 import "./Register.css"
@@ -21,6 +24,17 @@ export default function Register() {
         setActiveSection(nextSection);
     };
 
+    const [verContraseña1, setVerContraseña1] = useState(false);
+    const [verContraseña2, setVerContraseña2]= useState(false);
+    
+    const handleClickShowPassword1 = () => { 
+        setVerContraseña1(!verContraseña1); 
+    };
+
+    const handleClickShowPassword2 = () => { 
+        setVerContraseña2(!verContraseña2); 
+    };
+    
     return (
         <main className="mainRegister">
             {activeSection === 'A' && (
@@ -72,8 +86,32 @@ export default function Register() {
                         noValidate
                         autoComplete="off"
                         className='boxInput'>
-                        <TextField id="registro-basic2" label="Ingrese su contraseña" variant="outlined" required />
-                        <TextField id="registro-basic3" label="Vuelva a ingresar su contraseña" variant="outlined" required type="password" />
+                        <TextField id="registro-basic2" label="Ingrese su contraseña" variant="outlined" required type={verContraseña1? 'text' : 'password'} 
+                        InputProps={{
+                            endAdornment: (
+                                <InputAdornment position="end">
+                                    <IconButton
+                                        onClick={handleClickShowPassword1}
+                                        edge="end">
+                                        {verContraseña1 ? <VisibilityOff /> : <Visibility />}
+                                    </IconButton> 
+                                </InputAdornment>
+                            ),
+                        }}
+                        />
+                        <TextField id="registro-basic3" label="Vuelva a ingresar su contraseña" variant="outlined" required type={verContraseña2 ? 'text' : 'password'} 
+                        InputProps={{
+                            endAdornment: (
+                                <InputAdornment position="end">
+                                    <IconButton
+                                        onClick={handleClickShowPassword2}
+                                        edge="end">
+                                        {verContraseña2 ? <VisibilityOff /> : <Visibility />}
+                                    </IconButton> 
+                                </InputAdornment>
+                            ),
+                        }}
+                        />
                     </Box>
 
                 

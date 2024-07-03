@@ -2,6 +2,7 @@ import { AppBar, Button, Drawer, IconButton, Toolbar, Typography, Box } from "@m
 import NavListDrawer from "./NavListDrawer";
 import { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu"
+import { useNavigate } from "react-router-dom";
 
 const navLinks = [
     {
@@ -11,10 +12,10 @@ const navLinks = [
         title: 'Transacciones', path: "#"
     },
     {
-        title: 'Cereales', path: "#"
+        title: 'Ganaderia', path: "#"
     },
     {
-        title: 'Animales', path: "#"
+        title: 'Agricultura', path: "#"
     },
     {
         title: 'Cerrar sesión', path: "/"
@@ -22,6 +23,11 @@ const navLinks = [
 ]
 
 export default function NavBar() {
+    const navigate = useNavigate()
+
+    const returnHomeTouch=()=>{
+        navigate("/home")
+    }
 
     const [open, setOpen] = useState(false)
 
@@ -39,8 +45,8 @@ export default function NavBar() {
                     </Box>
 
                     <Typography variant="h3" sx={{
-                        flexGrow: 1
-                    }}>3FT</Typography>
+                        flexGrow: 1, cursor:'pointer'
+                    }} onClick={returnHomeTouch}>3FT</Typography>
 
                     <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
 
