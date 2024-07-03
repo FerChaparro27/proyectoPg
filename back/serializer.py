@@ -6,3 +6,13 @@ class mainUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = MainUser
         fields = "__all__"
+
+class instructorSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MainUser
+        fields = "__all__"
+
+class clientsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MainUser
+        fields = "__all__"
