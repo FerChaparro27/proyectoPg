@@ -17,7 +17,7 @@ function Main() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<SignIn />} />
-        <Route path='/recover_password' element={<RecoverPassword />} />
+        <Route path='/recover-password' element={<RecoverPassword />} />
         <Route path="/home" element={<Home />} />
         <Route path='/register' element={<Register />}/>
       </Routes>
