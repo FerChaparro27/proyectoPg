@@ -65,4 +65,38 @@ class Gym(models.Model):
     def __str__(self):
         return self.id
 
+class Routine(models.Model):
+    routine_number = models.CharField(max_length=20, default="")
+    elaboration_date = models.DateField()
+    duration = models.CharField(max_length=20, default="")
 
+    def __str__(self):
+        return self.id
+
+class Plan(models.Model):
+    days = models.CharField(max_length=20, default="")
+
+    def __str__(self):
+        return self.id
+    
+class Share(models.Model):
+    id = models.AutoField(primary_key=True)
+    price = models.CharField(max_length=20, default="")
+
+    def __str__(self):
+        return self.id
+
+class Acrivity(models.Model):
+    name = models.CharField(max_length=100, default="")
+    avtivity_number= models.CharField(max_length=20, default="")
+
+    def __str__(self):
+        return self.id
+    
+class Voucher(models.Model):
+    voucher_number = models.CharField(max_length=20, default="")
+    type = models.TextField()
+    detail = models.TextField()
+
+    def __str__(self):
+        return self.id
