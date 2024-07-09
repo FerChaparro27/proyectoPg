@@ -28,7 +28,7 @@ class Instructor(models.Model):
     gender = models.CharField(max_length=20, default="")
 
     def __str__(self):
-        return self.id
+        return str(self.id)
 
 
 class Vouchers(models.Model):
@@ -52,7 +52,7 @@ class Clients(models.Model):
     gender = models.CharField(max_length=20, default="")
     
     def __str__(self):
-        return self.id
+        return str(self.id)
 
 
 
