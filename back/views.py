@@ -1,8 +1,8 @@
-#from django.http import HttpResponse # Chat me lo tiro como necesario (Discutir regu)
+#from django.http import HttpResponse # Chat me lo tiro como necesario (Discutir)
 from django.shortcuts import render
 from rest_framework import viewsets, generics
-from .models import MainUser, Clients, Instructor, Routine, Plan, Share, Activity, Voucher
-from .serializer import mainUserSerializer, instructorSerializer, clientsSerializer, routineSerializer, planSerializer, shareSerializer, activitySerializer, voucherSerializer
+from .models import MainUser, Clients, Instructor, Routine, Plan, Dues, Activity, Voucher
+from .serializer import mainUserSerializer, instructorSerializer, clientsSerializer, routineSerializer, planSerializer, duesSerializer, activitySerializer, voucherSerializer
 
 # Create your views here.
 
@@ -53,13 +53,13 @@ class planRetrieve(generics.RetrieveDestroyAPIView):
     serializer_class = planSerializer
     pass
 
-class shareList(generics.ListCreateAPIView):
-    queryset = Share.objects.all()
-    serializer_class = shareSerializer
+class duesList(generics.ListCreateAPIView):
+    queryset = Dues.objects.all()
+    serializer_class = duesSerializer
     pass
-class shareRetrieve(generics.RetrieveDestroyAPIView):
-    queryset = Share.objects.all()
-    serializer_class = shareSerializer
+class duesRetrieve(generics.RetrieveDestroyAPIView):
+    queryset = Dues.objects.all()
+    serializer_class = duesSerializer
     pass
 
 class activityList(generics.ListCreateAPIView):

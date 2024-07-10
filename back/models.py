@@ -2,7 +2,8 @@ from django.db import models
 
 # Create your models here.
 
-"""MainUser, Profesores, Alumnos, Transacciones, Rutinas, Gimnasio, Comprobante, Actividad, Plan, Cuotas"""
+"""MainUser, Profesores, Alumnos, Transacciones, Rutinas (Routine), Gimnasio, Comprobante (Voucher), 
+Actividad (Activity), Plan, Cuotas (Dues)"""
 
 
 class MainUser(models.Model):
@@ -57,21 +58,22 @@ class Gym(models.Model):
         return str(self.id)
 
 class Routine(models.Model):
-    routine_number = models.CharField(max_length=20, default="", unique=True)
+    id= models.AutoField(primary_key=True) #numero de rutina
     elaboration_date = models.DateField()
     duration = models.DurationField(max_length=20, default="") 
 
     def __str__(self):
-        return str(self.routine_number) #Actuará como id
+        return str(self.id) 
 
 class Plan(models.Model):
-    plan_number=models.IntegerField(max_length=20, default="", unique=True)
+    id=models.AutoField( primary_key=True)
+    plan_number=models.CharField(max_length=20,default="")
     days = models.CharField(max_length=20, default="")
 
     def __str__(self):
-        return str(self.plan_number) 
+        return str(self.id) 
     
-class Share(models.Model):
+class Dues(models.Model):
     id = models.AutoField(primary_key=True)
     price = models.CharField(max_length=20, default="")
 
@@ -79,14 +81,15 @@ class Share(models.Model):
         return str(self.id)
 
 class Activity(models.Model):
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100, default="")
-    activity_number= models.CharField(max_length=20, default="")
+    #activity_number = models.CharField(max_length=20, default="")
 
     def __str__(self):
-        return str(self.id) #REVISAR
+        return str(self.id)
     
 class Voucher(models.Model):
-    id = models.CharField(max_length=20, default="", unique=True)
+    id = models.AutoField(primary_key=True)
     type = models.TextField()
     detail = models.TextField()
 
