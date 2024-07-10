@@ -1,9 +1,7 @@
 from rest_framework import serializers
 from .models import MainUser, Transactions, Vouchers
-from .models import MainUser, Gym
-from .models import MainUser, Routine
-from .models import MainUser, Plan
-from .models import MainUser, 
+from .models import MainUser, Gym , Routine, Plan, Share, Acrivity, Voucher
+
 
 
 class mainUserSerializer(serializers.ModelSerializer):
@@ -35,4 +33,24 @@ class gymSerializer(serializers.ModelSerializer):
 class routineSerializer(serializers.ModelSerializer):
     class Meta:
         model = Routine
+        fields = "__all__"
+
+class planSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Plan
+        fields = "__all__"
+
+class shareSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Share
+        fields = "__all__"
+
+class activitySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Acrivity
+        fields = "__all__"
+
+class voucherSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Voucher
         fields = "__all__"
