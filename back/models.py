@@ -13,7 +13,7 @@ class MainUser(models.Model):
     passsword = models.CharField(max_length=100, default="")
 
     def __str__(self):
-        return self.id
+        return str(self.id)
 
 
 class Instructor(models.Model):
@@ -28,7 +28,7 @@ class Instructor(models.Model):
     gender = models.CharField(max_length=20, default="")
 
     def __str__(self):
-        return self.id
+        return str(self.id)
 
 
 class Vouchers(models.Model):
@@ -52,7 +52,7 @@ class Clients(models.Model):
     gender = models.CharField(max_length=20, default="")
     
     def __str__(self):
-        return self.id
+        return str(self.id)
 
 
 
@@ -89,14 +89,6 @@ class Share(models.Model):
 class Acrivity(models.Model):
     name = models.CharField(max_length=100, default="")
     avtivity_number= models.CharField(max_length=20, default="")
-
-    def __str__(self):
-        return self.id
-    
-class Voucher(models.Model):
-    voucher_number = models.CharField(max_length=20, default="")
-    type = models.TextField()
-    detail = models.TextField()
 
     def __str__(self):
         return self.id

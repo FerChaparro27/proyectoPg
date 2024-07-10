@@ -1,7 +1,12 @@
 from rest_framework import serializers
+<<<<<<< HEAD
 from .models import MainUser, Transactions, Vouchers
 from .models import MainUser, Gym , Routine, Plan, Share, Acrivity, Voucher
 
+=======
+from .models import MainUser, Instructor, Clients, Gym, Routine
+# from .models import Plan
+>>>>>>> 245e98c066a61b91bc3db58a679664edc7c4b1c4
 
 
 class mainUserSerializer(serializers.ModelSerializer):
@@ -10,19 +15,15 @@ class mainUserSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class TransactionsSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Transactions
-
-
 class instructorSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = MainUser
-        fields = "__all__"
+     class Meta:
+         model = Instructor
+         fields = "__all__"
 
 class clientsSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = MainUser
+     class Meta:
+         model = Clients
+         fields = "__all__"
 
 
 class gymSerializer(serializers.ModelSerializer):
