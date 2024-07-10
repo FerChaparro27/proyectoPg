@@ -1,7 +1,8 @@
+#from django.http import HttpResponse # Chat me lo tiro como necesario (Discutir)
 from django.shortcuts import render
 from rest_framework import viewsets, generics
-from .models import MainUser, Clients, Instructor
-from .serializer import mainUserSerializer, instructorSerializer, clientsSerializer
+from .models import MainUser, Clients, Instructor, Routine, Plan, Dues, Activity, Voucher, Transactions
+from .serializer import mainUserSerializer, instructorSerializer, clientsSerializer, routineSerializer, planSerializer, duesSerializer, activitySerializer, voucherSerializer, transactionsSerializer
 
 # Create your views here.
 
@@ -14,6 +15,14 @@ class mainUserRetrieve(generics.RetrieveDestroyAPIView):
     serializer_class = mainUserSerializer
     pass
 
+class transactionsList(generics.ListCreateAPIView):
+    queryset = Transactions.objects.all()
+    serializer_class = transactionsSerializer
+    pass
+class transactionsRetrieve(generics.RetrieveDestroyAPIView):
+    queryset = Transactions.objects.all()
+    serializer_class = transactionsSerializer
+    pass
 
 class instructorList(generics.ListCreateAPIView):
     queryset = Instructor.objects.all()
@@ -32,4 +41,49 @@ class clientsList(generics.ListCreateAPIView):
 class clientsRetrieve(generics.RetrieveDestroyAPIView):
     queryset = Clients.objects.all()
     serializer_class = clientsSerializer
+    pass
+
+class routineList(generics.ListCreateAPIView):
+    queryset = Routine.objects.all()
+    serializer_class = routineSerializer
+    pass
+class routineRetrieve(generics.RetrieveDestroyAPIView):
+    queryset = Routine.objects.all()
+    serializer_class = routineSerializer
+    pass
+
+class planList(generics.ListCreateAPIView):
+    queryset = Plan.objects.all()
+    serializer_class = planSerializer
+    pass
+class planRetrieve(generics.RetrieveDestroyAPIView):
+    queryset = Plan.objects.all()
+    serializer_class = planSerializer
+    pass
+
+class duesList(generics.ListCreateAPIView):
+    queryset = Dues.objects.all()
+    serializer_class = duesSerializer
+    pass
+class duesRetrieve(generics.RetrieveDestroyAPIView):
+    queryset = Dues.objects.all()
+    serializer_class = duesSerializer
+    pass
+
+class activityList(generics.ListCreateAPIView):
+    queryset = Activity.objects.all()
+    serializer_class = activitySerializer
+    pass
+class activityRetrieve(generics.RetrieveDestroyAPIView):
+    queryset = Activity.objects.all()
+    serializer_class = activitySerializer
+    pass
+
+class voucherList(generics.ListCreateAPIView):
+    queryset = Voucher.objects.all()
+    serializer_class = voucherSerializer
+    pass
+class voucherRetrieve(generics.RetrieveDestroyAPIView):
+    queryset = Voucher.objects.all()
+    serializer_class = voucherSerializer
     pass

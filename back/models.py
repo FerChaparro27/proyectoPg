@@ -2,7 +2,8 @@ from django.db import models
 
 # Create your models here.
 
-"""MainUser, Profesores, Alumnos, Transacciones, Rutinas, Gimnasio, Comprobante, Actividad, Plan, Cuotas"""
+"""MainUser, Profesores, Alumnos, Transacciones, Rutinas (Routine), Gimnasio, Comprobante (Voucher), 
+Actividad (Activity), Plan, Cuotas (Dues)"""
 
 
 class MainUser(models.Model):
@@ -14,6 +15,15 @@ class MainUser(models.Model):
 
     def __str__(self):
         return str(self.id)
+    
+class Transactions(models.Model):
+    id = models.AutoField(primary_key=True)
+    type = models.CharField(max_length=100, default="")
+    date = models.DateField()
+    amount = models.CharField(max_length=100, default="") 
+    origin = models.CharField(max_length=100, default="") 
+    destination = models.CharField(max_length=100, default="") 
+    responsable = models.CharField(max_length=100, default="")
 
 
 class Instructor(models.Model):
@@ -29,15 +39,6 @@ class Instructor(models.Model):
 
     def __str__(self):
         return str(self.id)
-
-
-class Vouchers(models.Model):
-    id = models.AutoField(primary_key=True)
-    type = models.TextField()
-    detail = models.TextField()
-
-    def __str__(self):
-        return self.id
     
 
 class Clients(models.Model):
@@ -63,32 +64,41 @@ class Gym(models.Model):
     address = models.CharField(max_length=100, default="")
 
     def __str__(self):
-        return self.id
+        return str(self.id)
 
 class Routine(models.Model):
-    routine_number = models.CharField(max_length=20, default="")
+    id= models.AutoField(primary_key=True) #numero de rutina
     elaboration_date = models.DateField()
-    duration = models.CharField(max_length=20, default="")
+    duration = models.DurationField(max_length=20, default="") 
 
     def __str__(self):
-        return self.id
+        return str(self.id) 
 
 class Plan(models.Model):
+    id=models.AutoField( primary_key=True)
     days = models.CharField(max_length=20, default="")
 
     def __str__(self):
-        return self.id
+        return str(self.id) 
     
-class Share(models.Model):
+class Dues(models.Model):
     id = models.AutoField(primary_key=True)
     price = models.CharField(max_length=20, default="")
 
     def __str__(self):
-        return self.id
+        return str(self.id)
 
-class Acrivity(models.Model):
+class Activity(models.Model):
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100, default="")
-    avtivity_number= models.CharField(max_length=20, default="")
 
     def __str__(self):
-        return self.id
+        return str(self.id)
+    
+class Voucher(models.Model):
+    id = models.AutoField(primary_key=True)
+    type = models.TextField()
+    detail = models.TextField()
+
+    def __str__(self):
+        return str(self.id)
