@@ -6,19 +6,22 @@ import { useNavigate } from "react-router-dom";
 
 const navLinks = [
     {
-        title: 'Mi cuenta', path: "#"
+        title: 'Clientes', path: "#"
+    },
+    {
+        title: 'Profesores', path: "#"
+    },
+    {
+        title: 'Actividades', path: "#"
+    },
+    {
+        title: 'Rutinas', path: "#"
     },
     {
         title: 'Transacciones', path: "#"
     },
     {
-        title: 'Ganaderia', path: "#"
-    },
-    {
-        title: 'Agricultura', path: "#"
-    },
-    {
-        title: 'Cerrar sesión', path: "/"
+        title: 'Mi perfil', path: "#"
     }
 ]
 
