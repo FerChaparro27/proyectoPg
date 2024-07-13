@@ -1,28 +1,28 @@
 import NavBar from "../components/navbar/NavBar"
 import * as React from 'react';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-import { useNavigate } from "react-router-dom"
+// import Stack from '@mui/material/Stack';
+// import Button from '@mui/material/Button';
+// import { useNavigate } from "react-router-dom"
 import "./Home.css"
 
 function Home() {
 
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
-    const IrGanaderia= () => {
-        navigate('/breeding')
+    // const IrGanaderia= () => {
+    //     navigate('/breeding')
     
-    }
-        const IrAgricultura= () => {
-        navigate('/farming')
-    }
+    // }
+    //     const IrAgricultura= () => {
+    //     navigate('/farming')
+    // }
         
     return (
         
         <main>
             <NavBar />
 
-            <section className="sectionHome">
+            {/* <section className="sectionHome">
 
                 <article>
                     <div>
@@ -41,7 +41,7 @@ function Home() {
                     </Stack>
                 </div> 
 
-            </section>
+            </section> */}
 
         </main>
     );

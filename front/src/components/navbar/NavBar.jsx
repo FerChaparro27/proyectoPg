@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 const navLinks = [
     {
-        title: 'Clientes', path: "#"
+        title: 'Clientes', path: "/clients"
     },
     {
         title: 'Profesores', path: "#"
@@ -22,6 +22,9 @@ const navLinks = [
     },
     {
         title: 'Mi perfil', path: "#"
+    },
+    {
+        title:'Cerrar sesion', path: "/"
     }
 ]
 

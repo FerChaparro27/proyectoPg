@@ -1,4 +1,4 @@
-import { Box, Divider, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
+import { Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 import { useNavigate } from 'react-router-dom'
 
 export default function NavListDrawer({ navLinks }) {
@@ -24,18 +24,6 @@ export default function NavListDrawer({ navLinks }) {
                         </ListItem>
                     ))
                 }
-            </List>
-        </nav>
-        <Divider />
-        <nav>
-            <List>
-                <ListItem disablePadding>
-                    <ListItemButton
-                        component="a"
-                        href="#">
-                        <ListItemText onClick={returnLogin}>Cerrar sesión</ListItemText>
-                    </ListItemButton>
-                </ListItem>
             </List>
         </nav>
     </Box>
