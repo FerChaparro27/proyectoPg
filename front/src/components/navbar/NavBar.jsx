@@ -18,7 +18,7 @@ const navLinks = [
         title: 'Rutinas', path: "#"
     },
     {
-        title: 'Transacciones', path: "#"
+        title: 'Transacciones', path: "/transaction"
     },
     {
         title: 'Mi perfil', path: "#"

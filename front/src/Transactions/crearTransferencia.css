@@ -1,0 +1,21 @@
+.formularioTransaccion{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.cajaFormulario{
+    padding-top: 20px;
+    border: 2px solid rgb(216, 216, 216);
+    width: 400px;
+    height: 500px;
+    border-radius: 10px;
+}
+.all{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20;
+}
