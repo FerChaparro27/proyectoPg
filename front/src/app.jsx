@@ -4,6 +4,8 @@ import RecoverPassword from './RecoverPassword/RecoverPassword';
 import Home from './HomePage/Home';
 import Register from './Register/Register';
 import Clients from './page_clients/clients';
+import TransactionPage from './Transactions/transaction'
+import NuevaTransferencia from './Transactions/crearTransferencia'
 
 export default function App() {
     return (
@@ -12,8 +14,10 @@ export default function App() {
                 <Route path="/" element={<SignIn />} />
                 <Route path='/recover-password' element={<RecoverPassword />} />
                 <Route path="/home" element={<Home />} />
-                <Route path='/register' element={<Register />}/>
-                <Route path='/clients' element={<Clients />}/>
+                <Route path='/register' element={<Register />} />
+                <Route path='/clients' element={<Clients />} />
+                <Route path='/transaction' element={<TransactionPage />} />
+                <Route path='/transaction_nuevaTransaccion' element={<NuevaTransferencia />} />
             </Routes>
         </BrowserRouter>
     )
