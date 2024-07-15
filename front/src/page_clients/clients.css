@@ -1,0 +1,22 @@
+.principalTitle{
+    text-align: center;
+}
+
+.infoGrids{
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    justify-content: center;
+}
+
+.clientTable{
+    list-style: none;
+    padding: 20px;
+}
+
+.createClientButton{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
