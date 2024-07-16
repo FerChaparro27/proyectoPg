@@ -45,13 +45,13 @@ function Home() {
 
                 <div className="Botones">
                 <Stack spacing={2} direction="column">
-                        <Button variant="contained" className='ClientesButton' >CLIENTES</Button>
-                        <Button variant="contained" className='ProfesoresButton'>PROFESORES</Button>
+                        <Button variant="contained" className='ClientesButton' onClick={IrClientes} >CLIENTES</Button>
+                        <Button variant="contained" className='ProfesoresButton' onClick={IrProfesores}>PROFESORES</Button>
                     <div className="ActividadesRutinasContainer">
-                            <Button variant="contained" className='ActividadesButton'>ACTIVIDADES</Button>
-                            <Button variant="contained" className='RutinasButton'>RUTINAS</Button>
+                            <Button variant="contained" className='ActividadesButton' onClick={IrActividades}>ACTIVIDADES</Button>
+                            <Button variant="contained" className='RutinasButton' onClick={IrRutinas}>RUTINAS</Button>
                     </div>
-                        <Button variant="contained" className='TransaccionesButton'>TRANSACCIONES</Button>
+                        <Button variant="contained" className='TransaccionesButton' onClick={IrTransacciones}>TRANSACCIONES</Button>
                 </Stack>
                 </div> 
 
