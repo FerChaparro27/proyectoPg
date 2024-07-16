@@ -1,47 +1,61 @@
 import NavBar from "../components/navbar/NavBar"
 import * as React from 'react';
-// import Stack from '@mui/material/Stack';
-// import Button from '@mui/material/Button';
-// import { useNavigate } from "react-router-dom"
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+import { useNavigate } from "react-router-dom"
 import "./Home.css"
 
 function Home() {
 
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
 
-    // const IrGanaderia= () => {
-    //     navigate('/breeding')
-    
-    // }
-    //     const IrAgricultura= () => {
-    //     navigate('/farming')
-    // }
+        const IrClientes= () => {
+         navigate('/Clientes')
+     }
+         const IrActividades= () => {
+         navigate('/Actividades')
+     }
+
+        const IrRutinas= () => {
+        navigate('/Rutinas')
+    }
+        const IrProfesores= () => {
+        navigate('/Profesores')
+    }
+        const IrTransacciones= () => {
+        navigate('/Transacciones')
+    }
         
     return (
         
         <main>
             <NavBar />
 
-            {/* <section className="sectionHome">
+            {<section className="sectionHome">
 
                 <article>
                     <div>
-                        <h1 className="Bienvenida">Bienvenido usuario</h1>
+                        <h1 className="Bienvenida">Hola usuario</h1>
                     </div>
 
                     <div>
-                        <h1 className="Eleccion">Seleccione el area a trabajar</h1>
+                        <h1 className="Eleccion">Seleccione el area deseada</h1>
                     </div>
                 </article>
 
                 <div className="Botones">
-                    <Stack spacing={10} direction="row">
-                        <Button variant="contained" className='GanaderiaButton' onClick={IrGanaderia} >GANADERIA</Button>
-                        <Button variant="contained" className='AgriculturaButton'onClick={IrAgricultura} >AGRICULTURA</Button>
-                    </Stack>
+                <Stack spacing={2} direction="column">
+                        <Button variant="contained" className='ClientesButton' >CLIENTES</Button>
+                        <Button variant="contained" className='ProfesoresButton'>PROFESORES</Button>
+                    <div className="ActividadesRutinasContainer">
+                            <Button variant="contained" className='ActividadesButton'>ACTIVIDADES</Button>
+                            <Button variant="contained" className='RutinasButton'>RUTINAS</Button>
+                    </div>
+                        <Button variant="contained" className='TransaccionesButton'>TRANSACCIONES</Button>
+                </Stack>
                 </div> 
 
-            </section> */}
+            </section> }
 
         </main>
     );
