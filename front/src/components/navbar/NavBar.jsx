@@ -52,7 +52,7 @@ export default function NavBar() {
 
                     <Typography variant="h3" sx={{
                         flexGrow: 1, cursor:'pointer'
-                    }} onClick={returnHomeTouch}>3FT</Typography>
+                    }} onClick={returnHomeTouch}>ADN</Typography>
 
                     <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
 

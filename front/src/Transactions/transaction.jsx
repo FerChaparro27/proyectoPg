@@ -1,8 +1,10 @@
 import * as React from 'react';
-import { TableAxios } from '../components/Tables/TableAxios';
 import { Button, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import "./transaction.css"
+import NavBar from '../components/navbar/NavBar';
+import { width } from '@mui/system';
+import TransactionsTable from '../components/Tables/BasicTable';
 
 
 function TransactionPage(){
@@ -14,9 +16,10 @@ function TransactionPage(){
 
     return(
         <main>
+            <NavBar></NavBar>
             <Box className='transactionPage'>
-                <Button variant="contained" onClick={IrNuevaTransferencia} style={{width:'60%', marginBottom:'20px'}}>Añadir nueva transferencia</Button>
-                <TableAxios></TableAxios>
+                <Button variant="contained" onClick={IrNuevaTransferencia} style={{width:'95%', marginBottom:'20px'}}>Añadir nueva transferencia</Button>
+                <TransactionsTable></TransactionsTable>
             </Box>
             
         </main>

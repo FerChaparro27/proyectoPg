@@ -10,6 +10,8 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import "./crearTransferencia.css";
+import { color } from '@mui/system';
+import NavBar from '../components/navbar/NavBar';
 
 
 
@@ -66,6 +68,7 @@ function NuevaTransferencia(){
       
     return(
         <main>
+            <NavBar></NavBar>
             <div className='all'>
                 <h2>Crear Transaccion</h2>
                 <Box className="cajaFormulario">
