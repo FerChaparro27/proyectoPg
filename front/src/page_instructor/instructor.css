@@ -1,0 +1,22 @@
+.principalTitle{
+    text-align: center;
+}
+
+.infoGrids{
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    justify-content: center;
+}
+
+.instructorTable{
+    list-style: none;
+    padding: 20px;
+}
+
+.createInstructorButton{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}

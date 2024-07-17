@@ -9,7 +9,7 @@ const navLinks = [
         title: 'Clientes', path: "/clients"
     },
     {
-        title: 'Profesores', path: "#"
+        title: 'Profesores', path: "/instructor"
     },
     {
         title: 'Actividades', path: "#"
