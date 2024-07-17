@@ -12,34 +12,34 @@
     margin-bottom: 20px; 
 }
 
-.ClientesButton {
+.ClientsButton {
     width: 450px;
     height: 200px;
 }
 
-.ProfesoresButton {
+.ProfessorsButton {
     width: 450px;
     height: 200px;
 } 
 
-.ActividadesRutinasContainer {
+.ActivitiesRoutinesContainer {
     display: flex;
     justify-content: space-between;
     width: 100;
     margin-bottom: 10px; /
 }
 
-.ActividadesButton {
+.ActivitiesButton {
     width: 220px;
     height: 250px;
 }
 
-.RutinasButton {
+.RoutinesButton {
     width: 220px;
     height: 250px;
 } 
 
-.TransaccionesButton {
+.TransactionsButton {
     width: 450px;
     height: 200px;
 }

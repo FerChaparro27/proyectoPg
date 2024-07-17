@@ -9,21 +9,21 @@ function Home() {
 
     const navigate = useNavigate()
 
-        const IrClientes= () => {
-         navigate('/Clientes')
+        const GoClients= () => {
+         navigate('/create_client')
      }
-         const IrActividades= () => {
-         navigate('/Actividades')
+         const GoActivities= () => {
+         navigate('/Activities')
      }
 
-        const IrRutinas= () => {
-        navigate('/Rutinas')
+        const GoRoutines= () => {
+        navigate('/Routines')
     }
-        const IrProfesores= () => {
-        navigate('/Profesores')
+        const GoProfessors= () => {
+        navigate('/Professors')
     }
-        const IrTransacciones= () => {
-        navigate('/Transacciones')
+        const GoTransactions= () => {
+        navigate('/Transaction')
     }
         
     return (
@@ -45,13 +45,13 @@ function Home() {
 
                 <div className="Botones">
                 <Stack spacing={2} direction="column">
-                        <Button variant="contained" className='ClientesButton' onClick={IrClientes} >CLIENTES</Button>
-                        <Button variant="contained" className='ProfesoresButton' onClick={IrProfesores}>PROFESORES</Button>
-                    <div className="ActividadesRutinasContainer">
-                            <Button variant="contained" className='ActividadesButton' onClick={IrActividades}>ACTIVIDADES</Button>
-                            <Button variant="contained" className='RutinasButton' onClick={IrRutinas}>RUTINAS</Button>
+                        <Button variant="contained" className='ClientsButton' onClick={GoClients} >CLIENTES</Button>
+                        <Button variant="contained" className='ProfessorsButton' onClick={GoProfessors}>PROFESORES</Button>
+                    <div className="ActivitiesRoutinesContainer">
+                            <Button variant="contained" className='ActivitiesButton' onClick={GoActivities}>ACTIVIDADES</Button>
+                            <Button variant="contained" className='RoutinesButton' onClick={GoRoutines}>RUTINAS</Button>
                     </div>
-                        <Button variant="contained" className='TransaccionesButton' onClick={IrTransacciones}>TRANSACCIONES</Button>
+                        <Button variant="contained" className='TransactionsButton' onClick={GoTransactions}>TRANSACCIONES</Button>
                 </Stack>
                 </div> 
 
