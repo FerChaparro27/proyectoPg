@@ -16,7 +16,7 @@ export default function Clients(){
         navigate('/create_client')
     }
 
-    const [client, setClient] = useState();
+    const [client, setClient] = useState([]);
 
     const searchData = () => {
         return axios.get('http://127.0.0.1:8000/clients/')
@@ -33,7 +33,7 @@ export default function Clients(){
 
             <Typography variant="h2" className="principalTitle">CLIENTS</Typography>
 
-            <section className="infoGrids">
+             <section className="infoGrids">
                 <ul className="clientTable">
                     <li>id</li>
                     {client && client.length > 0 && client.map((clientObj, index) => (
@@ -52,12 +52,11 @@ export default function Clients(){
                             <li key={clientObj.id}>{clientObj.lastname}</li>
                         ))}
                     </ul>
-            </section>
+            </section> 
                 
             <div className='createClientButton'>
                 <Button variant="contained" onClick={touch}>Create new client</Button>
             </div>
             
         </main>
-    )
-}
+    )}
