@@ -4,9 +4,11 @@
 
 .infoGrids{
     display: flex;
+    flex-direction: column;
     align-items: center;
     width: 100vw;
     justify-content: center;
+    margin: 20px 0px 20px 0px;
 }
 
 .clientTable{
@@ -19,4 +21,8 @@
     flex-direction: column;
     text-align: center;
     align-items: center;
+}
+
+.cardClient{
+    border: 1px solid black;
 }

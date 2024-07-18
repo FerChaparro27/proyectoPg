@@ -5,6 +5,7 @@ import axios from 'axios';
 import { Typography } from "@mui/material";
 import Button from '@mui/material/Button';
 import {useNavigate} from 'react-router-dom'
+import ClientCard from './clientCard';
 
 import "./clients.css"
 
@@ -33,25 +34,10 @@ export default function Clients(){
 
             <Typography variant="h2" className="principalTitle">CLIENTS</Typography>
 
-             <section className="infoGrids">
-                <ul className="clientTable">
-                    <li>id</li>
-                    {client && client.length > 0 && client.map((clientObj, index) => (
-                        <li key={clientObj.id}>{clientObj.id}</li>
-                    ))}
-                </ul>
-                <ul className="clientTable">
-                    <li>Name</li>
+            <section className="infoGrids">
                         {client && client.length > 0 && client.map((clientObj, index) => (
-                            <li key={clientObj.id}>{clientObj.name}</li>
-                        ))}
-                    </ul>
-                <ul className="clientTable">
-                    <li>Lastname</li>
-                        {client && client.length > 0 && client.map((clientObj, index) => (
-                            <li key={clientObj.id}>{clientObj.lastname}</li>
-                        ))}
-                    </ul>
+                <ClientCard key={clientObj.id} client={clientObj} />
+                ))}
             </section> 
                 
             <div className='createClientButton'>

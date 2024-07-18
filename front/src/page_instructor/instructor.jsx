@@ -5,6 +5,7 @@ import axios from 'axios';
 import { Typography } from "@mui/material";
 import Button from '@mui/material/Button';
 import {useNavigate} from 'react-router-dom'
+import InstructorCard from './instructorCard';
 
 import "./instructor.css"
 
@@ -33,7 +34,13 @@ export default function Instructor(){
 
             <Typography variant="h2" className="principalTitle">INSTRUCTORS</Typography>
 
-             <section className="infoGrids">
+            <section className="infoGrids">
+                        {instructor && instructor.length > 0 && instructor.map((instructorObj, index) => (
+                <InstructorCard key={instructorObj.id} instructor={instructorObj} />
+                ))}
+            </section> 
+
+             {/* <section className="infoGrids">
                 <ul className="instructorTable">
                     <li>id</li>
                     {instructor && instructor.length > 0 && instructor.map((instructorObj, index) => (
@@ -52,7 +59,7 @@ export default function Instructor(){
                             <li key={instructorObj.id}>{instructorObj.lastname}</li>
                         ))}
                     </ul>
-            </section> 
+            </section>  */}
                 
             <div className='createInstructorButton'>
                 <Button variant="contained" onClick={touch}>Create new instructor</Button>
