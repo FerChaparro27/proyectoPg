@@ -3,7 +3,6 @@ import { Button, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import "./transaction.css"
 import NavBar from '../components/navbar/NavBar';
-import { width } from '@mui/system';
 import TransactionsTable from '../components/Tables/BasicTable';
 
 

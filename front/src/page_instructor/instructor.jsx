@@ -28,38 +28,21 @@ export default function Instructor(){
         searchData();
     }, [])
 
+    const handleDelete = (id) => {
+        setInstructor(instructor.filter(instructorObj => instructorObj.id !== id));
+    };
+
     return(
         <main>
             <NavBar />
 
-            <Typography variant="h2" className="principalTitle">INSTRUCTORS</Typography>
+            <Typography variant="h2" className="principalTitle">PROFESORES</Typography>
 
             <section className="infoGrids">
                         {instructor && instructor.length > 0 && instructor.map((instructorObj, index) => (
-                <InstructorCard key={instructorObj.id} instructor={instructorObj} />
+                <InstructorCard key={instructorObj.id} instructor={instructorObj} onDelete={handleDelete}/>
                 ))}
             </section> 
-
-             {/* <section className="infoGrids">
-                <ul className="instructorTable">
-                    <li>id</li>
-                    {instructor && instructor.length > 0 && instructor.map((instructorObj, index) => (
-                        <li key={instructorObj.id}>{instructorObj.id}</li>
-                    ))}
-                </ul>
-                <ul className="instructorTable">
-                    <li>Name</li>
-                        {instructor && instructor.length > 0 && instructor.map((instructorObj, index) => (
-                            <li key={instructorObj.id}>{instructorObj.name}</li>
-                        ))}
-                    </ul>
-                <ul className="instructorTable">
-                    <li>Lastname</li>
-                        {instructor && instructor.length > 0 && instructor.map((instructorObj, index) => (
-                            <li key={instructorObj.id}>{instructorObj.lastname}</li>
-                        ))}
-                    </ul>
-            </section>  */}
                 
             <div className='createInstructorButton'>
                 <Button variant="contained" onClick={touch}>Create new instructor</Button>
