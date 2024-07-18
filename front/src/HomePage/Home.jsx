@@ -10,7 +10,7 @@ function Home() {
     const navigate = useNavigate()
 
         const GoClients= () => {
-         navigate('/create_client')
+         navigate('/clients')
      }
          const GoActivities= () => {
          navigate('/Activities')
