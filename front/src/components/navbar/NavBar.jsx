@@ -12,16 +12,16 @@ const navLinks = [
         title: 'Profesores', path: "/instructor"
     },
     {
-        title: 'Actividades', path: "#"
+        title: 'Actividades', path: "/activities"
     },
     {
-        title: 'Rutinas', path: "#"
+        title: 'Rutinas', path: "/routines"
     },
     {
         title: 'Transacciones', path: "/transaction"
     },
     {
-        title: 'Mi perfil', path: "#"
+        title: 'Mi perfil', path: "/my-account"
     },
     {
         title:'Cerrar sesion', path: "/"

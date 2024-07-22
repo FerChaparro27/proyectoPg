@@ -9,6 +9,9 @@ import NuevaTransferencia from './Transactions/crearTransferencia'
 import FormCreateClient from './page_clients/form_client';
 import Instructor from './page_instructor/instructor';
 import FormCreateInstructor from './page_instructor/form_instructor';
+import Activities from './activities/activities';
+import Routine from './routine/routine';
+import MyAccount from './my_account/my_account';
 
 export default function App() {
     return (
@@ -24,7 +27,9 @@ export default function App() {
                 <Route path='/create_instructor' element={<FormCreateInstructor />} />
                 <Route path='/transaction' element={<TransactionPage />} />
                 <Route path='/transaction_nuevaTransaccion' element={<NuevaTransferencia />} />
-                
+                <Route path='/activities' element={<Activities />} />
+                <Route path='/routines' element={<Routine />} />
+                <Route path='/my-account' element={<MyAccount />} />
                 
          </Routes>
 
