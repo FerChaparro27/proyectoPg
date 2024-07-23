@@ -39,7 +39,7 @@ export default function NavBar() {
 
     return (
         <>
-            <AppBar position="fixed" className="navBar">
+            <AppBar position="relative" className="navBar">
                 <Toolbar>
 
                     <Box sx={{ display: { xs: 'flex', sm: 'none' } }}>
