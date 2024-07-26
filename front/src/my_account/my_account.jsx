@@ -22,8 +22,13 @@ export default function MyAccount() {
     <main>
       <NavBar />
       <div className="avatar-container">
-        <Avatar alt="User image" src={imageSrc} className="avatar" />
-        <IconButton className="edit-icon" component="label">
+        <Avatar alt="User image" src={imageSrc} className="avatarLogo"  style={{ minHeight: '100px', minWidth: '100px' }}/>
+        <IconButton className="edit-icon" component="label" style={{
+          width: '60px', 
+          height: '60px',
+          bottom: '20px',
+          right: '-45px' 
+        }}>
           <EditIcon />
           <input
             type="file"

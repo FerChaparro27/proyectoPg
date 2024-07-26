@@ -1,21 +1,13 @@
+
 .avatar-container {
     display: grid;
     align-items: center;
     justify-content: center;
     width: 100%;
-    position: relative;
-    display: inline-block;
-  }
-  
-  .avatar {
-    width: 1300px;
-    height: auto;
+    margin-top: 20px;
   }
   
   .edit-icon {
-    position: absolute;
-    bottom: 5px; 
-    right: -20px; 
     background-color: white;
     border-radius: 50%;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
