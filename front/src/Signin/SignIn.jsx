@@ -82,7 +82,6 @@ const SignIn = () => {
 
             <div className="questionsRoots">
                 <ul>
-                    <li onClick={touchRecover}>¿Olvidaste tu contraseña?</li>
                     <li onClick={touchRegister}>¿No tienes una cuenta todavía?</li>
                 </ul>
             </div>
