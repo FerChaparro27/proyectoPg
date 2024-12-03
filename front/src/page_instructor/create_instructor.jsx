@@ -40,7 +40,7 @@ const FormComponent = () => {
         }});
       setResponseMessage('Datos enviados exitosamente');
       console.log('Respuesta:', response.data);
-      navigate('/clients');
+      navigate('/instructor');
     } catch (error) {
       setResponseMessage('Error al enviar los datos');
       console.error('Error:', error);
