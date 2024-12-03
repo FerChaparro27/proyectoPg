@@ -20,7 +20,7 @@ function Home() {
         navigate('/Routines')
     }
         const GoProfessors= () => {
-        navigate('/Professors')
+        navigate('/Instructor')
     }
         const GoTransactions= () => {
         navigate('/Transaction')
@@ -32,16 +32,6 @@ function Home() {
             <NavBar />
 
             {<section className="sectionHome">
-
-                <article>
-                    <div>
-                        <h1 className="Bienvenida">Hola usuario</h1>
-                    </div>
-
-                    <div>
-                        <h1 className="Eleccion">Seleccione el area deseada</h1>
-                    </div>
-                </article>
 
                 <div className="Botones">
                 <Stack spacing={2} direction="column">
