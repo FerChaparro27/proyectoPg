@@ -1,7 +1,6 @@
 import NavBar from "../components/navbar/NavBar"
 import * as React from 'react';
-import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
+import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom"
 import "./Home.css"
 
@@ -9,43 +8,38 @@ function Home() {
 
     const navigate = useNavigate()
 
-        const GoClients= () => {
-         navigate('/clients')
-     }
-         const GoActivities= () => {
-         navigate('/Activities')
-     }
+    const GoClients = () => {
+        navigate('/clients')
+    }
+    const GoActivities = () => {
+        navigate('/Activities')
+    }
 
-        const GoRoutines= () => {
+    const GoRoutines = () => {
         navigate('/Routines')
     }
-        const GoProfessors= () => {
+    const GoProfessors = () => {
         navigate('/Instructor')
     }
-        const GoTransactions= () => {
+    const GoTransactions = () => {
         navigate('/Transaction')
     }
-        
+
     return (
-        
+
         <main>
             <NavBar />
 
-            {<section className="sectionHome">
-
-                <div className="Botones">
-                <Stack spacing={2} direction="column">
-                        <Button variant="contained" className='ClientsButton' onClick={GoClients} >CLIENTES</Button>
-                        <Button variant="contained" className='ProfessorsButton' onClick={GoProfessors}>PROFESORES</Button>
-                    <div className="ActivitiesRoutinesContainer">
-                            <Button variant="contained" className='ActivitiesButton' onClick={GoActivities}>ACTIVIDADES</Button>
-                            <Button variant="contained" className='RoutinesButton' onClick={GoRoutines}>RUTINAS</Button>
-                    </div>
-                        <Button variant="contained" className='TransactionsButton' onClick={GoTransactions}>TRANSACCIONES</Button>
-                </Stack>
-                </div> 
-
-            </section> }
+            <section className="sectionHome">
+                <Button variant="contained" className='ClientsButton' onClick={GoClients}>CLIENTES</Button>
+                <Button variant="contained" className='ProfessorsButton' onClick={GoProfessors}>PROFESORES</Button>
+                <Button variant="contained" className='ActivitiesButton' onClick={GoActivities}>ACTIVIDADES</Button>
+                <Button variant="contained" className='RoutinesButton' onClick={GoRoutines}>RUTINAS</Button>
+                <Button variant="contained" className='TransactionsButton' onClick={GoTransactions}>TRANSACCIONES</Button>
+                <div className="text">
+                    <p>The app for your gym</p>
+                </div>
+            </section>
 
         </main>
     );
