@@ -1,12 +1,14 @@
 .principalTitle{
-    text-align: center;
+    padding-left: 2.5%;
 }
 
-.infoGrids{
+.infoGrids {
     display: flex;
-    align-items: center;
-    width: 100vw;
-    justify-content: center;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+    gap: 8px; /* Espaciado entre los elementos */
+    align-items: center; /* Centra verticalmente los elementos */
+    width: 100%; /* Asegúrate de que ocupe el ancho del contenedor */
+    justify-content: center; /* Centra los elementos horizontalmente */
 }
 
 .instructorTable{
@@ -19,4 +21,5 @@
     flex-direction: column;
     text-align: center;
     align-items: center;
+    padding-top: 10px;
 }
