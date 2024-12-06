@@ -1,15 +1,47 @@
 
+/* Alinea el avatar en el centro */
 .avatar-container {
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin-top: 20px;
-  }
-  
-  .edit-icon {
-    background-color: white;
-    border-radius: 50%;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-  }
-  
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* Estilo del icono de edición */
+.edit-icon {
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Contenedor principal de los detalles del usuario */
+.account-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Estilo de los campos de texto (TextField) */
+.user-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 500px;
+  margin-top: 30px;
+}
+
+/* Espaciado entre los campos de texto */
+.user-details .MuiTextField-root {
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+/* Agrega un margen superior al contenedor de detalles */
+.user-details .MuiTypography-root {
+  margin-top: 20px;
+}
