@@ -31,15 +31,16 @@ export default function Clients() {
     return (
         <main>
             <NavBar />
-            <Typography variant="h2" className="principalTitle">CLIENTES</Typography>
+            <div className="createClientButton">
+                <Button variant="contained" onClick={touch} style={{width:'95%', marginBottom:'20px'}}>Añadir cliente</Button>
+            </div>
+            <Typography variant="h2" className="principalTitle">Clientes</Typography>
             <section className="infoGrids">
                 {client && client.length > 0 && client.map((clientObj, index) => (
                     <ClientCard key={clientObj.id} client={clientObj} onDelete={handleDelete} />
                 ))}
             </section>
-            <div className="createClientButton">
-                <Button variant="contained" onClick={touch}>Create new client</Button>
-            </div>
+            
         </main>
     );
 }

@@ -36,17 +36,16 @@ export default function Instructor(){
         <main>
             <NavBar />
 
-            <Typography variant="h2" className="principalTitle">PROFESORES</Typography>
+            <div className='createInstructorButton'>
+                <Button variant="contained" onClick={touch} style={{width:'95%', marginBottom:'20px'}}>Añadir instructor</Button>
+            </div>
+
+            <Typography variant="h2" className="principalTitle">Instructor</Typography>
 
             <section className="infoGrids">
                         {instructor && instructor.length > 0 && instructor.map((instructorObj, index) => (
                 <InstructorCard key={instructorObj.id} instructor={instructorObj} onDelete={handleDelete}/>
                 ))}
             </section> 
-                
-            <div className='createInstructorButton'>
-                <Button variant="contained" onClick={touch}>Create new instructor</Button>
-            </div>
-            
         </main>
     )}

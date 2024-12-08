@@ -1,46 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 .sectionHome {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    justify-content: center;
+    /* Centrar las celdas horizontalmente */
+    align-items: center;
+    /* Centrar las celdas verticalmente */
+    height: 100vh;
+    /* Altura total de la ventana */
+    margin-top: 20px;
+}
+
+.sectionHome Button {
+    width: 80%;
+    height: 300px;
+    max-height: 300px;
+    justify-self: center;
+    /* Centra cada botón dentro de su celda */
+    align-self: center;
+    /* Asegura que los botones estén centrados verticalmente */
+}
+
+<<<<<<< HEAD
+.ClientsButton {
+    width: 300px;
+    height: 200px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    height: 100vh;
-    margin-top: 80px; 
-}
-
-.Boton {
-    margin-bottom: 20px; 
-}
-
-.ClientsButton {
-    width: 450px;
-    height: 200px;
-}
-
+    margin: 0;
+} 
 .ProfessorsButton {
     width: 450px;
     height: 200px;
 } 
-
-.ActivitiesRoutinesContainer {
-    display: flex;
-    justify-content: space-between;
-    width: 100;
-    margin-bottom: 10px; /
+=======
+.sectionHome .text {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-size: 80px;
+    text-align: center;
+    padding-bottom: 80px;
 }
 
-.ActivitiesButton {
-    width: 220px;
-    height: 250px;
+@media (max-width: 320px) {
+    .sectionHome {
+        display: flex;
+        flex-direction: column;
+    }
+>>>>>>> 4feb99d9e793c2e368d8bf3497c34b17aaf16fc3
+
+    .sectionHome Button {
+        height: 600px;
+    }
+
+    .sectionHome .text {
+        font-size: 25px;
+        text-align: center;
+        padding-bottom: 40px;
+    }
 }
 
-.RoutinesButton {
-    width: 220px;
-    height: 250px;
-} 
+@media (min-width: 321px) and (max-width: 450px) {
+    .sectionHome {
+        display: flex;
+        flex-direction: column;
+    }
 
-.TransactionsButton {
-    width: 450px;
-    height: 200px;
+    .sectionHome .text {
+        font-size: 25px;
+        text-align: center;
+        padding-bottom: 40px;
+    }
 }
 
+@media (min-width: 451px) and (max-width: 750px) {
+    .sectionHome {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sectionHome Button {
+        width: 95%;
+        height: 300px;
+        max-height: 300px;
+        justify-self: center;
+        /* Centra cada botón dentro de su celda */
+        align-self: center;
+        /* Asegura que los botones estén centrados verticalmente */
+    }
+
+    .sectionHome .text {
+        font-size: 25px;
+        text-align: center;
+        padding-bottom: 40px;
+    }
+}
+
+@media (min-width: 751px) and (max-width:900px) {
+    .sectionHome {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sectionHome Button {
+        width: 95%;
+        height: 300px;
+        max-height: 300px;
+        justify-self: center;
+        /* Centra cada botón dentro de su celda */
+        align-self: center;
+        /* Asegura que los botones estén centrados verticalmente */
+    }
+
+    .sectionHome .text {
+        font-size: 50px;
+        text-align: center;
+        padding-bottom: 40px;
+    }
+}
