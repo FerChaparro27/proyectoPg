@@ -1,7 +1,7 @@
-import { AppBar, Button, Drawer, IconButton, Toolbar, Typography, Box } from "@mui/material";
+import { AppBar, Button, Drawer, IconButton, Toolbar, Typography, Box, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from "@mui/material";
 import NavListDrawer from "./NavListDrawer";
 import { useState } from "react";
-import MenuIcon from "@mui/icons-material/Menu"
+import MenuIcon from "@mui/icons-material/Menu";
 import { useNavigate } from "react-router-dom";
 
 const navLinks = [
@@ -24,18 +24,34 @@ const navLinks = [
         title: 'Mi perfil', path: "/my-account"
     },
     {
-        title:'Cerrar sesion', path: "/"
+        title: 'Cerrar sesión', path: "/" // No tiene una ruta, solo para activar el diálogo
     }
 ]
 
 export default function NavBar() {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
-    const returnHomeTouch=()=>{
-        navigate("/home")
+    const [open, setOpen] = useState(false);
+    const [dialogOpen, setDialogOpen] = useState(false); // Controla la apertura del diálogo de confirmación
+
+    const returnHomeTouch = () => {
+        navigate("/home");
     }
 
-    const [open, setOpen] = useState(false)
+    const handleDialogClose = () => {
+        setDialogOpen(false); // Cierra el diálogo
+    }
+
+    const handleLogoutConfirm = () => {
+        // Aquí puedes agregar la lógica para cerrar sesión, como limpiar el token.
+        console.log("Cerrando sesión...");
+        setDialogOpen(false); // Cierra el diálogo
+        navigate("/"); // Redirige a la página de inicio
+    }
+
+    const handleLogoutClick = () => {
+        setDialogOpen(true); // Abre el diálogo de confirmación
+    }
 
     return (
         <>
@@ -43,25 +59,27 @@ export default function NavBar() {
                 <Toolbar>
 
                     <Box sx={{ display: { xs: 'flex', sm: 'none' } }}>
-
                         <IconButton color="inherit" onClick={() => setOpen(true)}>
                             <MenuIcon />
                         </IconButton>
-
                     </Box>
 
-                    <Typography variant="h3" sx={{
-                        flexGrow: 1, cursor:'pointer'
-                    }} onClick={returnHomeTouch}>ADN</Typography>
+                    <Typography variant="h3" sx={{ flexGrow: 1, cursor: 'pointer' }} onClick={returnHomeTouch}>
+                        ADN
+                    </Typography>
 
                     <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-
                         {navLinks.map(item => (
-                            <Button color="inherit" key={item.title} component="a" href={item.path}>
+                            <Button
+                                color="inherit"
+                                key={item.title}
+                                component={item.title === 'Cerrar sesión' ? 'button' : 'a'}
+                                href={item.title === 'Cerrar sesión' ? undefined : item.path}
+                                onClick={item.title === 'Cerrar sesión' ? handleLogoutClick : undefined}
+                            >
                                 {item.title}
                             </Button>
                         ))}
-
                     </Box>
 
                 </Toolbar>
@@ -76,6 +94,29 @@ export default function NavBar() {
                 <NavListDrawer navLinks={navLinks} />
             </Drawer>
 
+            {/* Diálogo de confirmación de cierre de sesión */}
+            <Dialog
+                open={dialogOpen}
+                onClose={handleDialogClose}
+                aria-labelledby="logout-dialog-title"
+                aria-describedby="logout-dialog-description"
+            >
+                <DialogTitle id="logout-dialog-title">{"Cerrar Sesión"}</DialogTitle>
+                <DialogContent>
+                    <DialogContentText id="logout-dialog-description">
+                        ¿Estás seguro de que deseas cerrar sesión?
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleDialogClose} color="primary">
+                        Cancelar
+                    </Button>
+                    <Button onClick={handleLogoutConfirm} color="primary" autoFocus>
+                        Confirmar
+                    </Button>
+                </DialogActions>
+            </Dialog>
+
         </>
-    )
+    );
 }
