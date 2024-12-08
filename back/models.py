@@ -88,12 +88,18 @@ class Dues(models.Model):
     def __str__(self):
         return str(self.id)
 
+from django.db import models
+
 class Activity(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100, default="")
+    age = models.CharField(max_length=5, default="all")
+    description = models.CharField(max_length=100, default="")
+    
 
     def __str__(self):
         return str(self.id)
+
     
 class Voucher(models.Model):
     id = models.AutoField(primary_key=True)

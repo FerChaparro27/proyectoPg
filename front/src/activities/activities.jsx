@@ -9,7 +9,7 @@ export default function Activities(){
     const navigate = useNavigate()
 
     const IrNuevaActividad= () => {
-        navigate('/activities_nuevaActividad')
+        navigate('/add_activity')
     }
 
     return(
