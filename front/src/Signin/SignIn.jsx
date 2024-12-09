@@ -21,10 +21,6 @@ const SignIn = () => {
         navigate('/home');
     }
 
-    const touchRecover = () => {
-        navigate('/recover-password');
-    }
-
     const touchRegister = () => {
         navigate('/register');
     }
@@ -32,6 +28,7 @@ const SignIn = () => {
     const handleClickShowPassword = () => { //Funcion para al hacer click cambie el estado
         setVerContraseña(!verContraseña); 
     };
+
 
     return (
         <section className="sectionSignIn">
