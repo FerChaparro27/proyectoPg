@@ -18,12 +18,10 @@ export default function Activities(){
             <Box className="boton_actividades">
                 <Button variant="contained" onClick={IrNuevaActividad} style={{width:'95%', marginBottom:'20px'}}>Añadir nueva actividad</Button>
             </Box>
-            <ActividadCard
-                titulo="Yoga"
-                descripcion="Una actividad para mejorar la flexibilidad y reducir el estrés."
-                imagen="https://via.placeholder.com/300"
-                edadRecomendada="18+"
-            />
+            <div className="cardContainer">
+                <ActividadCard/>
+            </div>
+
         </main>
         
     )

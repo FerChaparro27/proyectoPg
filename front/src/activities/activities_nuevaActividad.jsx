@@ -10,7 +10,7 @@ export default function NuevaActivity() {
 
   const [inputs, setInputs] = useState({
     id: "null",
-    activity: "",
+    name: "",
     description: "",
     age: "",
   });
@@ -44,10 +44,10 @@ export default function NuevaActivity() {
           <div className="formularioTransaccion">
             <TextField
               required
-              name="activity"
+              name="name"
               type="text"
               label="Actividad"
-              value={inputs.activity}
+              value={inputs.name}
               onChange={handleChange}
             />
           </div>

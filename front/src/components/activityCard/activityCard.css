@@ -1,0 +1,15 @@
+.cardStyle{
+    margin-top: 20px;
+    display:flex;
+    width: 45%;
+}
+.boxAct{
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+    gap: 8px; /* Espaciado entre los elementos */
+    align-items: center; /* Centra verticalmente los elementos */
+    width: 100%; /* Asegúrate de que ocupe el ancho del contenedor */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    
+}
+

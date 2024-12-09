@@ -94,7 +94,7 @@ class Activity(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100, default="")
     age = models.CharField(max_length=5, default="all")
-    description = models.CharField(max_length=100, default="")
+    description = models.CharField(max_length=1000, default="")
     
 
     def __str__(self):

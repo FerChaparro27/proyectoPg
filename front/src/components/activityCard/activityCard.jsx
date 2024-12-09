@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card, CardContent, CardMedia, Typography, Button, Box } from '@mui/material';
+import "./activityCard.css"
 
 const ActividadCard = ({ titulo, descripcion, imagen, edadRecomendada }) => {
   // Estado para almacenar los títulos de las actividades
@@ -10,38 +11,42 @@ const ActividadCard = ({ titulo, descripcion, imagen, edadRecomendada }) => {
     setTitulosActividades((prev) => [...prev, titulo]);
   };
 
+  const [data, setData] = useState(null);
+
+  useEffect(()=>{
+    fetch("http://127.0.0.1:8000/activity/")
+    .then ((response) => response.json())
+    .then ((data) => setData(data));
+
+  },[]
+)
+
   return (
-    <Box sx={{ maxWidth: 345, margin: 'auto', mt: 2 }}>
+    <Box className="boxAct">
+
+    {data?.map((activity) => (
+    <Card key={activity.id}  className='cardStyle'>
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          {activity.name}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {activity.description}
+        </Typography>
+        <Typography variant="subtitle2" color="text.secondary" sx={{ mt: 1 }}>
+          Edad recomendada: {activity.age}
+        </Typography>
+      </CardContent>
+    </Card>
+  ))}
       <Card>
-        <CardMedia
+        {/* <CardMedia
           component="img"
           height="140"
           image={imagen}
           alt={titulo}
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {titulo}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {descripcion}
-          </Typography>
-          <Typography variant="subtitle2" color="text.secondary" sx={{ mt: 1 }}>
-            Edad recomendada: {edadRecomendada}
-          </Typography>
-        </CardContent>
+        /> */}
       </Card>
-      {/* Mostrar los títulos almacenados */}
-      {titulosActividades.length > 0 && (
-        <Box sx={{ mt: 2 }}>
-          <Typography variant="h6">Actividades Guardadas:</Typography>
-          <ul>
-            {titulosActividades.map((actividad, index) => (
-              <li key={index}>{actividad}</li>
-            ))}
-          </ul>
-        </Box>
-      )}
     </Box>
   );
 };
