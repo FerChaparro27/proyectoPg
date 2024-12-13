@@ -48,7 +48,7 @@ class Clients(models.Model):
     lastname = models.CharField(max_length=100, default="")
     mail = models.CharField(max_length=100, default="")
     phone_number = models.CharField(max_length=20, default="")
-    date_birth = models.DateField()
+    date_birth = models.DateField(null=True, blank=True)
     location =  models.CharField(max_length=100, default="")
     gender = models.CharField(max_length=20, default="")
     
