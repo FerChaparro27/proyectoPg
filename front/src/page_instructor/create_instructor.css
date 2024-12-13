@@ -1,0 +1,30 @@
+.formularioProfesor{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.containerButton {
+    display: flex;
+    justify-content: center; /* Centra el botón horizontalmente */
+    align-items: center;     /* Centra el botón verticalmente */
+    width: 100%; 
+    padding-top: 20px;            /* O ajusta el ancho según lo necesites */
+  }
+
+  .cajaFormulario {
+    border: 2px solid rgb(216, 216, 216);
+    border-radius: 10px;
+    width: 400px;
+    height: 720px;
+    margin-bottom: 20px;
+  }
+
+.all{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20;
+}

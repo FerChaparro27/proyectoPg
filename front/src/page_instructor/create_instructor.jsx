@@ -1,43 +1,47 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { Box } from '@mui/system';
+import { TextField, Button, FormControl, InputLabel, Select, MenuItem } from '@mui/material';
+
+import "./create_instructor.css";
 
 const FormComponent = () => {
+  const navigate = useNavigate();
 
-  const navigate = useNavigate()
-
-  const [formData, setFormData] = useState({
+  const [inputs, setInputs] = useState({
     dni: '',
     name: '',
     lastname: '',
-    mail:'',
+    mail: '',
     phone_number: '',
-    date_birth:'',
+    date_birth: '',
     location: '',
-    gender:'Masculino'
+    gender: '',
   });
 
   const [responseMessage, setResponseMessage] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
+    setInputs((prevInputs) => ({
+      ...prevInputs,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const url = 'http://127.0.0.1:8000/instructor/';
 
-    console.log(formData);
+    console.log(inputs);
 
     try {
-      const response = await axios.post(url, formData, {
+      const response = await axios.post(url, inputs, {
         headers: {
           'Content-Type': 'application/json',
-        }});
+        },
+      });
       setResponseMessage('Datos enviados exitosamente');
       console.log('Respuesta:', response.data);
       navigate('/instructor');
@@ -47,89 +51,92 @@ const FormComponent = () => {
     }
   };
 
-  return(
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>dni:</label>
-          <input
-            type="text"
+  return (
+    <div className='all'>
+      <Box className="cajaFormulario">
+        <div className="formularioProfesor">
+          <TextField
             name="dni"
-            value={formData.dni}
+            label="Documento"
+            value={inputs.dni}
             onChange={handleChange}
           />
         </div>
-        <div>
-          <label>name:</label>
-          <input
-            type="text"
+        <div className="formularioProfesor">
+          <TextField
             name="name"
-            value={formData.name}
+            label="Nombre"
+            value={inputs.name}
             onChange={handleChange}
           />
         </div>
-        <div>
-          <label>lastname:</label>
-          <input
-            type="text"
+        <div className="formularioProfesor">
+          <TextField
             name="lastname"
-            value={formData.lastname}
+            label="Apellido"
+            value={inputs.lastname}
             onChange={handleChange}
           />
         </div>
-        <div>
-          <label>mail:</label>
-          <input
-            type="text"
+        <div className="formularioProfesor">
+          <TextField
             name="mail"
-            value={formData.mail}
+            label="Mail"
+            value={inputs.mail}
             onChange={handleChange}
           />
         </div>
-        <div>
-          <label>phone:</label>
-          <input
-            type="text"
+        <div className="formularioProfesor">
+          <TextField
             name="phone_number"
-            value={formData.phone_number}
+            label="Teléfono"
+            value={inputs.phone_number}
             onChange={handleChange}
           />
         </div>
-        <div>
-          <label>dateBirth:</label>
-          <input
-            type="date"
+        <div className="formularioProfesor">
+          <TextField
             name="date_birth"
-            value={formData.date_birth}
+            label="Nacimiento"
+            type="date"
+            value={inputs.date_birth}
             onChange={handleChange}
+            InputLabelProps={{
+              shrink: true,
+            }}
           />
         </div>
-        <div>
-          <label>localidad:</label>
-          <input
-            type="text"
+        <div className="formularioProfesor">
+          <TextField
             name="location"
-            value={formData.location}
+            label="Localidad"
+            value={inputs.location}
             onChange={handleChange}
           />
         </div>
-        <div>
-          <label>genero:</label>
-          <select
-            name="gender"
-            value={formData.gender}
-            onChange={handleChange}
-          >
-            <option value="Masculino">Masculino</option>
-            <option value="Femenino">Femenino</option>
-            <option value="Indefinido">Prefiero no decir</option>
-          </select>
+        <div className="formularioProfesor">
+          <FormControl sx={{ width: '250px' }}>
+            <InputLabel id="gender-label">Selecciona</InputLabel>
+            <Select
+              labelId="gender-label"
+              id="gender"
+              name="gender"
+              value={inputs.gender}
+              onChange={handleChange}
+            >
+              <MenuItem value="male">Masculino</MenuItem>
+              <MenuItem value="female">Femenino</MenuItem>
+              <MenuItem value="other">Otro</MenuItem>
+            </Select>
+          </FormControl>
         </div>
-        <button type="submit">Enviar</button>
-      </form>
+        <div className='containerButton'>
+          <Button variant="contained" type="submit" onClick={handleSubmit}>Enviar</Button>
+        </div>
+      </Box>
       {responseMessage && <p>{responseMessage}</p>}
     </div>
-  )
-}
+  );
+};
 
 export default FormComponent;

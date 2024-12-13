@@ -37,10 +37,10 @@ export default function Instructor(){
             <NavBar />
 
             <div className='createInstructorButton'>
-                <Button variant="contained" onClick={touch} style={{width:'95%', marginBottom:'20px'}}>Añadir instructor</Button>
+                <Button variant="contained" onClick={touch} style={{width:'95%', marginBottom:'20px'}}>Añadir profesor</Button>
             </div>
 
-            <Typography variant="h2" className="principalTitle">Instructor</Typography>
+            <Typography variant="h2" className="principalTitle">Profesores</Typography>
 
             <section className="infoGrids">
                         {instructor && instructor.length > 0 && instructor.map((instructorObj, index) => (
