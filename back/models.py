@@ -1,20 +1,34 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 
 """MainUser, Profesores, Alumnos, Transacciones, Rutinas (Routine), Gimnasio, Comprobante (Voucher), 
 Actividad (Activity), Plan, Cuotas (Dues)"""
 
+#PRUEBA DE CREACION DE USUARIO CON LIB ABSTRACTUSER PARA AUTH
 
-class MainUser(models.Model):
+class MainUser(AbstractUser):
     id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=100, default="")
+    username = None  # Elimina el campo username de AbstractUser
+    name = models.CharField(max_length=100, unique=True, default="dafault_username")
     lastname = models.CharField(max_length=100, default="")
-    mail = models.CharField(max_length=100, default="")
-    passsword = models.CharField(max_length=100, default="")
+    mail = models.CharField(max_length=100, unique=True)
+    password = models.CharField(max_length=255, default="")
 
-    def __str__(self):
-        return str(self.id)
+    USERNAME_FIELD = 'mail'  # Usa 'mail' como el campo principal para login
+    REQUIRED_FIELDS=[]
+
+#USUARIO CREADO COMO BASE
+# class MainUser(models.Model):
+#     id = models.AutoField(primary_key=True)
+#     name = models.CharField(max_length=100, default="")
+#     lastname = models.CharField(max_length=100, default="")
+#     mail = models.CharField(max_length=100, default="")
+#     password = models.CharField(max_length=100, default="")
+
+#     def __str__(self):
+#         return str(self.id)
     
 class Transactions(models.Model):
     id = models.AutoField(primary_key=True)

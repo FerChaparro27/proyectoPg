@@ -1,11 +1,19 @@
 from django.urls import path
-from .views import mainUserList, mainUserRetrieve, clientsList, clientsRetrieve, instructorList, instructorRetrieve, planList, planRetrieve, duesList, duesRetrieve, activityList, activityRetrieve, voucherList, voucherRetrieve, routineList, routineRetrieve, transactionsList, transactionsRetrieve
+from .views import clientsList, clientsRetrieve, instructorList, instructorRetrieve, planList, planRetrieve, duesList, duesRetrieve, activityList, activityRetrieve, voucherList, voucherRetrieve, routineList, routineRetrieve, transactionsList, transactionsRetrieve
+#import validacion
+from .views import RegisterView, LoginView, UserView, LogoutView
 
 app_name = 'back'
 
 urlpatterns = [
-    path('', mainUserList.as_view(), name='listMainUsers'),
-    path('mainUserRetrieve/<int:pk>/', mainUserRetrieve.as_view(), name='retrieveMainUsers'),
+    #URLS USER CON VALIDACION
+    path("register", RegisterView.as_view()),
+    path("login", LoginView.as_view()),
+    path("user", UserView.as_view()),
+    path("logout", LogoutView.as_view()),
+    #URLS BASE USER
+    # path('', mainUserList.as_view(), name='listMainUsers'),
+    # path('mainUserRetrieve/<int:pk>/', mainUserRetrieve.as_view(), name='retrieveMainUsers'),
     path('transactions/', transactionsList.as_view(), name='listTransactions'),
     path('transactionsRetrieve/<int:pk>/', transactionsRetrieve.as_view(), name='retrieveTransactions'),
     path('clients/', clientsList.as_view(), name='listClients'),
