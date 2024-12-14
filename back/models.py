@@ -10,11 +10,13 @@ Actividad (Activity), Plan, Cuotas (Dues)"""
 
 class MainUser(AbstractUser):
     id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=100, unique=True)
+    username = None  # Elimina el campo username de AbstractUser
+    name = models.CharField(max_length=100, unique=True, default="dafault_username")
     lastname = models.CharField(max_length=100, default="")
     mail = models.CharField(max_length=100, unique=True)
     password = models.CharField(max_length=255, default="")
 
+    USERNAME_FIELD = 'mail'  # Usa 'mail' como el campo principal para login
     REQUIRED_FIELDS=[]
 
 #USUARIO CREADO COMO BASE
