@@ -8,8 +8,14 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.exceptions import AuthenticationFailed
 import jwt, datetime
+#VISTA RAIZ DE LA API
+from django.http import JsonResponse
 
 # Create your views here.
+
+#VISTA RAIZ
+def home(request):
+    return JsonResponse({"message": "Welcome to the API Home! Select an API section into the Path"})
 
 #REGISTRO E INGRESO DE USUARIOS
 #Registro
@@ -24,11 +30,12 @@ class RegisterView(APIView): #APIView es una vista que se basa sobre una clase, 
 class LoginView(APIView):
     def post(self, request):
         #Los dos request extraen el dato especifico del cuerpo de la solicitud POST
-        name = request.data['name']
+        
+        email = request.data['email']
         password = request.data['password']
 
         #busca un user en la BD 
-        user = MainUser.objects.filter(name=name).first()
+        user = MainUser.objects.filter(email=email).first()
 
         #verifica si el usuario no fue encontrado, si no lo encuentra arroja una excepcion
         if user is None:
