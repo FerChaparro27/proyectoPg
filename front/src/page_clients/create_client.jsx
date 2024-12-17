@@ -19,7 +19,6 @@ const FormComponent = () => {
   }
 
   const [inputs, setInputs] = useState({
-    id: "NULL",
     dni: '',
     name: '',
     lastname: '',
@@ -39,29 +38,42 @@ const FormComponent = () => {
   };
 
 
+  const handleSubmit = async () => {
+    console.log('Datos a enviar:', inputs);
 
-const handleSubmit = async () => {
+    // Validación final antes de enviar
+    if (!inputs.date_birth || typeof inputs.date_birth !== 'string' || inputs.date_birth.length !== 10) {
+        console.error('Error: `date_birth` no es válida:', inputs.date_birth);
+        return;
+    }
+
     try {
-      const response = await axios.post('http://127.0.0.1:8000/clients/', inputs);
-      console.log('Response:', response.data);
+        const response = await axios.post('http://127.0.0.1:8000/clients/', inputs);
+        console.log('Respuesta del servidor:', response.data);
     } catch (error) {
-      console.error('Error posting data:', error);
+        console.error('Error al enviar datos:', error.response?.data || error.message);
     }
     VolverClientes();
-  };
+};
 
   const [selectedDate, setSelectedDate] = React.useState('');
 
+
   const handleDateChange = (event) => {
-    const date = event.target.value;
-    setSelectedDate(date);
-    const formattedDate = new Date(date).toISOString().split('T')[0];
+    const date = event.target.value; // Fecha cruda del input (e.g., "2024-12-13")
+    const formattedDate = new Date(date).toISOString().split('T')[0]; // Formato "YYYY-MM-DD"
+
+    // Actualizamos el estado de la fecha seleccionada
+    setSelectedDate(formattedDate); // Ahora está seguro que es un string en formato "YYYY-MM-DD"
+
+    // Actualizamos el estado de inputs
     setInputs((prevInputs) => ({
         ...prevInputs,
-        date:formattedDate, // Actualizamos el campo de fecha en inputs
-      }));
-    console.log(selectedDate)
-  };
+        date_birth: formattedDate, // Asegúrate de usar el nombre correcto del campo esperado por tu backend
+    }));
+
+    console.log('Fecha seleccionada:', formattedDate);
+};
 
 const fechaString = new Date(selectedDate);
 
@@ -69,7 +81,7 @@ const fechaString = new Date(selectedDate);
     <main>
     <div className='all'>
         <Box className="cajaFormulario">
-        <div className="formularioTransaccion">
+        <div className="formularioCliente">
                 <TextField
                     name='dni'
                     label="Documento"
@@ -77,7 +89,7 @@ const fechaString = new Date(selectedDate);
                     onChange={handleChange}
                 />
             </div>
-            <div className="formularioTransaccion">
+            <div className="formularioCliente">
                 <TextField
                     name='name'
                     label="Nombre"
@@ -85,7 +97,7 @@ const fechaString = new Date(selectedDate);
                     onChange={handleChange}
                 />
             </div>
-            <div className="formularioTransaccion">
+            <div className="formularioCliente">
                 <TextField
                     name='lastname'
                     label="Apellido"
@@ -93,7 +105,7 @@ const fechaString = new Date(selectedDate);
                     onChange={handleChange}
                 />
             </div>
-            <div className="formularioTransaccion">
+            <div className="formularioCliente">
                 <TextField
                     name='mail'
                     label="Mail"
@@ -101,7 +113,7 @@ const fechaString = new Date(selectedDate);
                     onChange={handleChange}
                 />
             </div>
-            <div className="formularioTransaccion">
+            <div className="formularioCliente">
                 <TextField
                     name='phone_number'
                     label="Telefono"
@@ -109,7 +121,7 @@ const fechaString = new Date(selectedDate);
                     onChange={handleChange}
                 />
             </div>
-            <div className="formularioTransaccion">
+            <div className="formularioCliente">
             <TextField
                 name='date_birth'
                 label="Nacimiento"
@@ -121,7 +133,7 @@ const fechaString = new Date(selectedDate);
                 }}
             />
             </div>
-            <div className="formularioTransaccion">
+            <div className="formularioCliente">
                 <TextField
                     name='location'
                     label="Localidad"
@@ -129,8 +141,8 @@ const fechaString = new Date(selectedDate);
                     onChange={handleChange}
                 />
             </div>
-            <div className="formularioTransaccion">
-            <FormControl fullWidth>
+            <div className="formularioCliente">
+            <FormControl sx={{ width: '250px' }}>
               <InputLabel id="gender-label">Selecciona</InputLabel>
               <Select
                 labelId="gender-label"
@@ -145,9 +157,9 @@ const fechaString = new Date(selectedDate);
               </Select>
             </FormControl>
             </div>
-            <div>
+            <div className='containerButton'>
              <Button variant="contained" type="submit" onClick={handleSubmit}>Enviar</Button>
-       </div>
+            </div>
         </Box>
     </div>
 </main>

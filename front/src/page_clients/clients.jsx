@@ -4,10 +4,12 @@ import axios from 'axios';
 import { Typography, Button } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import ClientCard from './clientCard';
+import { useLocation } from 'react-router-dom';
 import './clients.css';
 
 export default function Clients() {
     const navigate = useNavigate();
+    const location = useLocation();
 
     const touch = () => {
         navigate('/create_client');

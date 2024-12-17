@@ -40,24 +40,51 @@ export default function Register() {
         setVerContraseña2(!verContraseña2); 
     };
 
+    // const handleSubmit = () => {
+    //     if (contraseña1 === contraseña2) {
+    //         axios.post('http://127.0.0.1:8000/', {
+    //             username: nombre,
+    //             lastname: apellido,
+    //             mail: email,
+    //             passsword: contraseña1
+    //         })
+    //         .then(response => {
+    //             console.log(response);
+    //             handleNext('D');
+    //         })
+    //         .catch(error => {
+    //             console.error("Hubo un error al crear la cuenta:", error);
+    //         });
+    //     } else {
+    //         alert("Las contraseñas no coinciden.");
+    //     }
+    // };
+
     const handleSubmit = () => {
-        if (contraseña1 === contraseña2) {
-            axios.post('http://127.0.0.1:8000/', {
-                name: nombre,
-                lastname: apellido,
-                mail: email,
-                passsword: contraseña1
-            })
-            .then(response => {
-                console.log(response);
-                handleNext('D');
-            })
-            .catch(error => {
-                console.error("Hubo un error al crear la cuenta:", error);
-            });
-        } else {
-            alert("Las contraseñas no coinciden.");
+        if (!email || !nombre || !apellido || !contraseña1 || !contraseña2) {
+            alert("Por favor, completa todos los campos.");
+            return;
         }
+    
+        if (contraseña1 !== contraseña2) {
+            alert("Las contraseñas no coinciden.");
+            return;
+        }
+    
+        // Si la validación es exitosa, se hace el POST request
+        axios.post('http://127.0.0.1:8000/register', {
+            username: nombre,
+            lastname: apellido,
+            mail: email,
+            password: contraseña1,
+        })
+        .then(response => {
+            console.log(response);
+            handleNext('D');
+        })
+        .catch(error => {
+            console.error("Hubo un error al crear la cuenta:", error);
+        });
     };
 
     return (
