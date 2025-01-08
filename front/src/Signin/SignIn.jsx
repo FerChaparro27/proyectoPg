@@ -17,7 +17,6 @@ const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 const SignIn = () => {
     const navigate = useNavigate();
-    
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [verContraseña, setVerContraseña] = useState(false);
@@ -27,23 +26,18 @@ const SignIn = () => {
         setVerContraseña(!verContraseña);
     };
 
-    // Función para manejar el inicio de sesión
     const handleLogin = async () => {
         try {
-            const response = await axios.post('http://127.0.0.1:8000/api/login', {
+            const response = await axios.post('http://127.0.0.1:8000/api/login/', {
                 email: email,
                 password: password
             });
-
-            // Si la respuesta es exitosa, redirigimos al usuario
-            if (response.data.success) {
-                navigate('/home');
-            } else {
-                setError("Credenciales incorrectas");
-            }
-        } catch (err) {
-            console.error("Error en el login:", err);
-            setError("Hubo un problema al iniciar sesión");
+            console.log(response.data);
+            // Redirige al usuario a la página deseada después del login
+            navigate('/home');
+        } catch (error) {
+            console.error(error);
+            setError('Mail o Contraseña incorrecto/a.'); // Actualizamos el estado de error
         }
     };
 
