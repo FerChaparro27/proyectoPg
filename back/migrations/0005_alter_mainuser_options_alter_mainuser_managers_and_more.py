@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 
 
-=======
->>>>>>> b0fcae2416fae6ba663e192f38ab12b35502f9bf
 
 import django.contrib.auth.models
 import django.utils.timezone
@@ -98,11 +95,6 @@ class Migration(migrations.Migration):
         ),
         migrations.AlterField(
             model_name='mainuser',
-<<<<<<< HEAD
             name='name',            field=models.CharField(max_length=255, unique=True),
-=======
-            name='name',
-            field=models.CharField(max_length=255, unique=True),
->>>>>>> b0fcae2416fae6ba663e192f38ab12b35502f9bf
         ),
     ]
