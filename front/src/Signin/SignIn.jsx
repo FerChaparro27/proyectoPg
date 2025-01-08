@@ -17,11 +17,8 @@ const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 const SignIn = () => {
     const navigate = useNavigate();
-
-    // const ingresoHome = () => navigate('/home');
-    
-    const [email, setEmail] = React.useState("");
-    const [password, setPassword] = React.useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     const [verContraseña, setVerContraseña] = useState(false);
     const [error, setError] = useState("");
 
@@ -33,13 +30,14 @@ const SignIn = () => {
         try {
             const response = await axios.post('http://127.0.0.1:8000/api/login/', {
                 email: email,
+                password: password
             });
             console.log(response.data);
             // Redirige al usuario a la página deseada después del login
             navigate('/home');
         } catch (error) {
             console.error(error);
-            setError('Verifica tus credenciales'); // Actualizamos el estado de error
+            setError('Mail o Contraseña incorrecto/a.'); // Actualizamos el estado de error
         }
     };
 
@@ -59,7 +57,6 @@ const SignIn = () => {
                 noValidate
                 autoComplete="off"
                 className='boxInput'
-                // onSubmit={handleLogin}
             >
                 <TextField 
                     id="outlined-basic" 
