@@ -1,9 +1,3 @@
-<<<<<<< Updated upstream
-
-
-
-=======
->>>>>>> Stashed changes
 import django.contrib.auth.models
 import django.utils.timezone
 from django.db import migrations, models
@@ -99,9 +93,5 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='mainuser',
             name='name',            field=models.CharField(max_length=255, unique=True),
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
         ),
     ]
