@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import clientsList, clientsRetrieve, instructorList, instructorRetrieve, planList, planRetrieve, duesList, duesRetrieve, activityList, activityRetrieve, voucherList, voucherRetrieve, routineList, routineRetrieve, transactionsList, transactionsRetrieve, mainUserList, mainUserRetrieve
+from .views import clientsList, clientsRetrieve, instructorList, instructorRetrieve, planList, planRetrieve, duesList, duesRetrieve, activityList, activityRetrieve, voucherList, voucherRetrieve, routineList, routineRetrieve, transactionsList, transactionsRetrieve, mainUserList, mainUserRetrieve, LoginView, UserView
 
 app_name = 'back'
 
@@ -15,7 +15,9 @@ urlpatterns = [
     # path("", home, name="api_home"),
     path('', mainUserList.as_view(), name='listMainUsers'),
     path('mainUserRetrieve/<int:pk>/', mainUserRetrieve.as_view(), name='retrieveMainUsers'),
-    
+    #RUTAS VALIDACION EMAIL
+    path('login/', LoginView.as_view(), name='login'),
+    path('user/', UserView.as_view(), name='user'),
     path('transactions/', transactionsList.as_view(), name='listTransactions'),
     path('transactionsRetrieve/<int:pk>/', transactionsRetrieve.as_view(), name='retrieveTransactions'),
     path('clients/', clientsList.as_view(), name='listClients'),

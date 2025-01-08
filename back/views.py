@@ -9,19 +9,15 @@ from .serializer import mainUserSerializer, instructorSerializer, clientsSeriali
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.exceptions import AuthenticationFailed
-import datetime
-import jwt
-
-import logging
 
 #VISTA RAIZ DE LA API
-from django.http import JsonResponse
+# from django.http import JsonResponse
 
 # Create your views here.
 
 #VISTA RAIZ
-def home(request):
-    return JsonResponse({"message": "Welcome to the API Home! Select an API section into the Path"})
+# def home(request):
+#     return JsonResponse({"message": "Welcome to the API Home! Select an API section into the Path"})
 
 #REGISTRO E INGRESO DE USUARIOS
 #Registro
@@ -32,72 +28,35 @@ def home(request):
 #         serializer.save()#si los datos son validos los guarda en la BD
 #         return Response(serializer.data)#retorna una respuesta HTTP con los datos enviados
     
-#Ingreso con validacion
-# class LoginView(APIView):
-#     def post(self, request):
-#         #Los dos request extraen el dato especifico del cuerpo de la solicitud POST
-        
-#         email = request.data['email']
-#         password = request.data['password']
+#Ingreso con validacion de mail y contraseña
+class LoginView(APIView):
+    def post(self, request):
+        email = request.data['email']
 
-#         #busca un user en la BD 
-#         user = MainUser.objects.filter(mail=email).first()
+        # Busca un usuario en la BD
+        user = MainUser.objects.filter(mail=email).first()
 
-#         #verifica si el usuario no fue encontrado, si no lo encuentra arroja una excepcion
-#         if user is None:
-#             raise AuthenticationFailed('User not found!')
-        
-#         #verifica si la password del usuario es igual o no a la almacenada, dependiendo de eso arroja o no una excepcion
-#         if not user.check_password(password):
-#             raise AuthenticationFailed('Incorrect password!')
-        
-#         #Payload cumple el rol de diccionario, el cual almacena los datos del usuario (id), determina el tiempo de expiracion y el tiempo de emision del token
-#         payload = {
-#             'id': user.id,
-#             'exp':datetime.datetime.now()+datetime.timedelta(minutes=60),
-#             'iat': datetime.datetime.now()
-#         }
+        # Verifica si el usuario no fue encontrado, si no lo encuentra arroja una excepción
+        if user is None:
+            raise AuthenticationFailed('User not found!')
 
-#         #token codifica el payload y lo transorma a JWT mediante HS256 
-#         token = jwt.encode(payload, 'secret', algorithm='HS256')
+        # Si el usuario existe, retorna una respuesta exitosa
+        return Response({'message': 'Login successful'})
 
-#         #'secret' variable de entorno para mayor seguridad
+class UserView(APIView):
+    def get(self, request):
+        email = request.query_params.get('email')
 
-#         #crea una respuesta http vacia
-#         response = Response()
+        if not email:
+            raise AuthenticationFailed('Email not provided!')
 
-#         #httponly permite que no se observe el token en el front, solo que nos permita trabajar con el back
-#         response.set_cookie(key='jwt',value=token, httponly=True)
-#         #asignamos los datos de la respuesta
-#         response.data={
-#             'jwt':token
-#         }
+        user = MainUser.objects.filter(mail=email).first()
 
-#         #lo que antes era una respuesta http vacia, ahora lleva el token de validacion
-#         return response
+        if not user:
+            raise AuthenticationFailed('User not found!')
 
-# class UserView(APIView):
-#     def get(self, request):
-#         token = request.COOKIES.get('jwt')
-#         logging.debug(f'Token from cookies: {token}')
-
-#         if not token:
-#             raise AuthenticationFailed('Unauthenticated!')
-
-#         try:
-#             payload = jwt.decode(token, 'secret', algorithms=['HS256'])
-#             logging.debug(f'Decoded payload: {payload}')
-#         except jwt.ExpiredSignatureError:
-#             raise AuthenticationFailed('Unauthenticated!')
-#         except jwt.InvalidTokenError:
-#             raise AuthenticationFailed('Invalid token!')
-
-#         user = MainUser.objects.filter(id=payload['id']).first()
-#         if not user:
-#             raise AuthenticationFailed('User not found!')
-
-#         serializer = mainUserSerializer(user)
-#         return Response(serializer.data)
+        serializer = mainUserSerializer(user)
+        return Response(serializer.data)
     
 #Cierre de sesion
 # class LogoutView(APIView):

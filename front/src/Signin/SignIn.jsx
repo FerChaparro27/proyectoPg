@@ -18,7 +18,7 @@ const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 const SignIn = () => {
     const navigate = useNavigate();
 
-    const ingresoHome = () => navigate('/home');
+    // const ingresoHome = () => navigate('/home');
     
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
@@ -27,6 +27,20 @@ const SignIn = () => {
 
     const handleClickShowPassword = () => {
         setVerContraseña(!verContraseña);
+    };
+
+    const handleLogin = async () => {
+        try {
+            const response = await axios.post('http://127.0.0.1:8000/api/login/', {
+                email: email,
+            });
+            console.log(response.data);
+            // Redirige al usuario a la página deseada después del login
+            navigate('/home');
+        } catch (error) {
+            console.error(error);
+            setError('Verifica tus credenciales'); // Actualizamos el estado de error
+        }
     };
 
     return (
@@ -85,7 +99,7 @@ const SignIn = () => {
             </div>
 
             <Stack spacing={2} direction="row">
-                <Button variant="contained" className='ingresarButton' onClick={ingresoHome}>INGRESAR</Button>
+                <Button variant="contained" className='ingresarButton' onClick={handleLogin}>INGRESAR</Button>
             </Stack>
 
             <div className="questionsRoots">
