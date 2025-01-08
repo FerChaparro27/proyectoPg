@@ -10,25 +10,16 @@ Actividad (Activity), Plan, Cuotas (Dues)"""
 
 class MainUser(AbstractUser):
     id = models.AutoField(primary_key=True)
-    username = models.CharField(max_length=100, unique=True)
+    mail = models.EmailField(unique=True)  # Usa EmailField para mayor precisión
     lastname = models.CharField(max_length=100, default="")
-    mail = models.CharField(max_length=100, unique=True)
     password = models.CharField(max_length=255, default="")
 
     USERNAME_FIELD = 'mail'  # Usa 'mail' como el campo principal para login
-    REQUIRED_FIELDS=[]
+    REQUIRED_FIELDS = ['username']  # 'username' sigue siendo obligatorio en AbstractUser
 
-#USUARIO CREADO COMO BASE
-# class MainUser(models.Model):
-#     id = models.AutoField(primary_key=True)
-#     name = models.CharField(max_length=100, default="")
-#     lastname = models.CharField(max_length=100, default="")
-#     mail = models.CharField(max_length=100, default="")
-#     password = models.CharField(max_length=100, default="")
+    def __str__(self):
+        return self.mail
 
-#     def __str__(self):
-#         return str(self.id)
-    
 class Transactions(models.Model):
     id = models.AutoField(primary_key=True)
     type = models.CharField(max_length=100, default="")

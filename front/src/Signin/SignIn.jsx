@@ -17,34 +17,16 @@ const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 const SignIn = () => {
     const navigate = useNavigate();
+
+    const ingresoHome = () => navigate('/home');
     
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [email, setEmail] = React.useState("");
+    const [password, setPassword] = React.useState("");
     const [verContraseña, setVerContraseña] = useState(false);
     const [error, setError] = useState("");
 
     const handleClickShowPassword = () => {
         setVerContraseña(!verContraseña);
-    };
-
-    // Función para manejar el inicio de sesión
-    const handleLogin = async () => {
-        try {
-            const response = await axios.post('http://127.0.0.1:8000/api/login', {
-                email: email,
-                password: password
-            });
-
-            // Si la respuesta es exitosa, redirigimos al usuario
-            if (response.data.success) {
-                navigate('/home');
-            } else {
-                setError("Credenciales incorrectas");
-            }
-        } catch (err) {
-            console.error("Error en el login:", err);
-            setError("Hubo un problema al iniciar sesión");
-        }
     };
 
     return (
@@ -63,6 +45,7 @@ const SignIn = () => {
                 noValidate
                 autoComplete="off"
                 className='boxInput'
+                // onSubmit={handleLogin}
             >
                 <TextField 
                     id="outlined-basic" 
@@ -102,7 +85,7 @@ const SignIn = () => {
             </div>
 
             <Stack spacing={2} direction="row">
-                <Button variant="contained" className='ingresarButton' onClick={handleLogin}>INGRESAR</Button>
+                <Button variant="contained" className='ingresarButton' onClick={ingresoHome}>INGRESAR</Button>
             </Stack>
 
             <div className="questionsRoots">
