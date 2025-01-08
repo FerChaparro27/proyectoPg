@@ -13,6 +13,7 @@ import Activities from './activities/activities';
 import Routine from './routine/routine';
 import MyAccount from './my_account/my_account';
 import NuevaActivity from './activities/activities_nuevaActividad';
+import AddRoutine from './routine/newRoutine';
 
 export default function App() {
     return (
@@ -32,6 +33,7 @@ export default function App() {
                 <Route path='/routines' element={<Routine />} />
                 <Route path='/my-account' element={<MyAccount />} />
                 <Route path='/add_activity' element={<NuevaActivity />} />
+                <Route path='/add_routine' element={<AddRoutine />} />
                 
          </Routes>
 

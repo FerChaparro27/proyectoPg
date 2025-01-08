@@ -81,9 +81,10 @@ class Gym(models.Model):
         return str(self.id)
 
 class Routine(models.Model):
-    id= models.AutoField(primary_key=True) #numero de rutina
-    elaboration_date = models.DateField()
-    duration = models.DurationField(max_length=20, default="") 
+    client = models.ForeignKey(Clients, related_name='routines', on_delete=models.CASCADE, default=1)
+    day = models.CharField(max_length=20, default="Lunes")  # Ejemplo: 'Lunes', 'Martes', etc.
+    name = models.CharField(max_length=100, default="Rutina del dia")
+    details = models.TextField(blank=True)
 
     def __str__(self):
         return str(self.id) 

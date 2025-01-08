@@ -40,10 +40,17 @@ class instructorSerializer(serializers.ModelSerializer):
          model = Instructor
          fields = "__all__"
 
+class routineSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Routine
+        fields = ['id', 'day', 'name', 'details']
+
 class clientsSerializer(serializers.ModelSerializer):
-     class Meta:
-         model = Clients
-         fields = "__all__"
+    routines = routineSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Clients
+        fields = ['id', 'name', 'lastname', 'routines']
 
 
 class gymSerializer(serializers.ModelSerializer):
@@ -51,10 +58,6 @@ class gymSerializer(serializers.ModelSerializer):
         model = Gym
         fields = "__all__"
 
-class routineSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Routine
-        fields = "__all__"
 
 class planSerializer(serializers.ModelSerializer):
     class Meta:
