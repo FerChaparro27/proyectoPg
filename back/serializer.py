@@ -43,7 +43,7 @@ class instructorSerializer(serializers.ModelSerializer):
 class routineSerializer(serializers.ModelSerializer):
     class Meta:
         model = Routine
-        fields = ['id', 'day', 'name', 'details']
+        fields = ['id', 'client', 'day', 'name', 'details']
 
 class clientsSerializer(serializers.ModelSerializer):
     routines = routineSerializer(many=True, read_only=True)

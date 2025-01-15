@@ -12,6 +12,8 @@ from rest_framework.exceptions import AuthenticationFailed
 from django.contrib.auth.hashers import check_password
 from rest_framework.exceptions import ValidationError
 from django.contrib.auth.hashers import make_password
+from rest_framework import status
+from rest_framework.decorators import api_view
 
 #VISTA RAIZ DE LA API
 # from django.http import JsonResponse
@@ -35,7 +37,28 @@ class RegisterView(APIView):
         user.save()
 
         return Response({'message': 'User registered successfully'})
+
+
+@api_view(['POST'])
+def create_routine(request):
+    try:
+        client = Clients.objects.get(id=request.data['client'])
+    except Clients.DoesNotExist:
+        return Response({'error': 'Client not found'}, status=status.HTTP_404_NOT_FOUND)
     
+    routine_data = {
+        'client': client.id,
+        'day': request.data['day'],
+        'name': request.data['name'],
+        'details': request.data['details']
+    }
+    
+    serializer = routineSerializer(data=routine_data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 #Ingreso con validacion de mail y contraseña
 class LoginView(APIView):
     def post(self, request):
