@@ -15,24 +15,24 @@ import "./SignIn.css";
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 const SignIn = () => {
-    const navigate = useNavigate(); // Esto es un hook que necesita de un elemento funcional
+    const navigate = useNavigate();
     
     const touch = () => {
         navigate('/home');
-    }
+    };
 
     const touchRegister = () => {
         navigate('/register');
-    }
-  const [verContraseña, setVerContraseña] = useState(false); // Estado para manejar si ver la contraseña o no 
-    const handleClickShowPassword = () => { //Funcion para al hacer click cambie el estado
-        setVerContraseña(!verContraseña); 
     };
 
+    const [verContraseña, setVerContraseña] = useState(false);
+
+    const handleClickShowPassword = () => {
+        setVerContraseña(!verContraseña);
+    };
 
     return (
         <section className="sectionSignIn">
-
             <div>
                 <Typography variant="h1">3FT</Typography>
             </div>
@@ -41,50 +41,56 @@ const SignIn = () => {
                 <p>Login</p>
             </div>
 
-            <Box
-                component="form"
-                sx={{
-                    '& > :not(style)': { m: 1, width: '500px' },
-                }}
-                noValidate
-                autoComplete="off"
-                className='boxInput'>
-                <TextField id="outlined-basic" label="Correo Electronico" variant="outlined" required />
+            <Box component="form" noValidate autoComplete="off" className="boxInput">
+                <TextField 
+                    id="outlined-basic" 
+                    label="Correo Electronico" 
+                    variant="outlined" 
+                    required 
+                />
                 <TextField
-                    id="outlined-password-input" label="Contraseña" variant="outlined" required type={verContraseña ? 'text' : 'password'}
+                    id="outlined-password-input" 
+                    label="Contraseña" 
+                    variant="outlined" 
+                    required 
+                    type={verContraseña ? 'text' : 'password'}
                     InputProps={{
                         endAdornment: (
                             <InputAdornment position="end">
-                                <IconButton
-                                    onClick={handleClickShowPassword}
-                                    edge="end">
+                                <IconButton onClick={handleClickShowPassword} edge="end">
                                     {verContraseña ? <VisibilityOff /> : <Visibility />}
-                                </IconButton> 
-                            </InputAdornment> //Funcion de mui para agregar iconos adentro de un input
+                                </IconButton>
+                            </InputAdornment>
                         ),
                     }}
                 />
             </Box>
 
             <div className="checkBoxLogin">
-                <div className='boxCheck'>
-                    <Checkbox {...label} defaultChecked />
-                </div>
+                <Checkbox {...label} defaultChecked />
                 <p>Recordame</p>
             </div>
 
-            <Stack spacing={2} direction="row">
-                <Button variant="contained" className='ingresarButton' onClick={touch}>INGRESAR</Button>
+            <Stack spacing={2} direction="row" justifyContent="center">
+                <Button 
+                    variant="contained" 
+                    className="ingresarButton" 
+                    onClick={touch}>
+                    INGRESAR
+                </Button>
             </Stack>
 
             <div className="questionsRoots">
                 <ul>
-                    <li onClick={touchRegister}>¿No tienes una cuenta todavía?</li>
+                    <li onClick={touchRegister}>
+                        ¿No tienes una cuenta todavía?
+                    </li>
                 </ul>
             </div>
-
         </section>
     );
 }
 
 export default SignIn;
+
+
