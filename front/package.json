@@ -10,11 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@emotion/react": "^11.13.5",
-    "@emotion/styled": "^11.13.5",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
     "@fontsource/roboto": "^5.0.13",
-    "@mui/icons-material": "^5.15.21",
-    "@mui/material": "^5.16.9",
+    "@mui/icons-material": "^5.16.14",
+    "@mui/material": "^5.16.14",
     "@mui/styled-engine": "^5.15.14",
     "@mui/system": "^5.15.15",
     "axios": "^1.7.8",

@@ -4,6 +4,8 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import NavBar from '../components/navbar/NavBar';
 import axios from 'axios';
 
+import "./routine.css";
+
 function RoutinesByDayWithSearch() {
   const [clients, setClients] = useState([]);
   const [filteredClients, setFilteredClients] = useState([]);
