@@ -1,31 +1,39 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from '../components/navbar/NavBar';
-import { Avatar, IconButton, TextField, Typography } from '@mui/material';
+import { Avatar, IconButton, TextField, Typography, Button } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import './my_account.css';
 
 export default function MyAccount() {
-  const [imageSrc, setImageSrc] = useState('/static/images/avatar/1.jpg');
+  const [imageSrc, setImageSrc] = useState(() =>
+    localStorage.getItem('profileImage') || '/static/images/avatar/1.jpg'
+  );
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
   const [email, setEmail] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [country, setCountry] = useState('');
 
-  // Llamada a la API para obtener datos del usuario
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:8000/api/"); // URL de tu API
-        const data = await response.json();
+        const response = await fetch('http://127.0.0.1:8000/api/user'); 
+        if (!response.ok) {
+          throw new Error('Failed to fetch user data');
+        }
 
-        // Actualizar los estados con los datos obtenidos
-        setName(data.name || '');
-        setSurname(data.surname || '');
-        setEmail(data.email || '');
-        setPhoneNumber(data.phoneNumber || '');
-        setCountry(data.country || '');
-        setImageSrc(data.profileImage || '/static/images/avatar/1.jpg'); // Manejo de imagen predeterminada
+        const userData = await response.json();
+        console.log('Fetched user data:', userData); // Agregado para verificar los datos
+
+        setName(userData.name || '');
+        setSurname(userData.surname || '');
+        setEmail(userData.email || '');
+        setPhoneNumber(userData.phoneNumber || '');
+        setCountry(userData.country || '');
+
+        if (!localStorage.getItem('profileImage')) {
+          setImageSrc(userData.profileImage || '/static/images/avatar/1.jpg');
+        }
       } catch (error) {
         console.error('Error fetching user data:', error);
       }
@@ -39,7 +47,9 @@ export default function MyAccount() {
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        setImageSrc(reader.result);
+        const imageData = reader.result;
+        setImageSrc(imageData);
+        localStorage.setItem('profileImage', imageData);
       };
       reader.readAsDataURL(file);
     }
@@ -77,17 +87,29 @@ export default function MyAccount() {
         </div>
 
         <div className="user-details">
-          <Typography variant="h6" gutterBottom>Full Name:</Typography>
+          <Typography variant="h6" gutterBottom>
+            Full Name:
+          </Typography>
           <TextField
-            label="Full Name"
+            label="Name"
             variant="outlined"
             fullWidth
-            value={`${name} ${surname}`}
+            value={name}
+            disabled
+            style={{ marginBottom: '16px' }}
+          />
+          <TextField
+            label="Surname"
+            variant="outlined"
+            fullWidth
+            value={surname}
             disabled
             style={{ marginBottom: '16px' }}
           />
 
-          <Typography variant="h6" gutterBottom>Email:</Typography>
+          <Typography variant="h6" gutterBottom>
+            Email:
+          </Typography>
           <TextField
             label="Email"
             variant="outlined"
@@ -97,7 +119,9 @@ export default function MyAccount() {
             style={{ marginBottom: '16px' }}
           />
 
-          <Typography variant="h6" gutterBottom>Phone Number:</Typography>
+          <Typography variant="h6" gutterBottom>
+            Phone Number:
+          </Typography>
           <TextField
             label="Phone Number"
             variant="outlined"
@@ -107,7 +131,9 @@ export default function MyAccount() {
             style={{ marginBottom: '16px' }}
           />
 
-          <Typography variant="h6" gutterBottom>Country:</Typography>
+          <Typography variant="h6" gutterBottom>
+            Country:
+          </Typography>
           <TextField
             label="Country"
             variant="outlined"
