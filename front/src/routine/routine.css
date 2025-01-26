@@ -1,0 +1,46 @@
+Contenedor principal del contenido centrado
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar horizontalmente */
+}
+
+.searchField {
+    
+    max-width: 850px; /* Máximo ancho */
+    margin: 20px auto; /* Centrado con separación */
+    border: 2px solid #0078D7; /* Borde azul */
+    border-radius: 8px; /* Bordes redondeados */
+    background-color: #fff; /* Fondo blanco */
+    padding: 10px; /* Espaciado interno */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.MuiAccordion-root {
+    width: 100%;
+    max-width: 800px; /* Limitar el ancho máximo */
+    margin: 20px auto; /* Centrado y separación entre acordeones */
+    border: 1px solid #ddd;
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 900px) {
+    .searchField,
+    .MuiAccordion-root {
+        max-width: 90%; /* Ajustar ancho en pantallas medianas */
+    }
+}
+
+@media (max-width: 600px) {
+    .searchField,
+    .MuiAccordion-root {
+        max-width: 95%; /* Más pequeño aún en pantallas móviles */
+    }
+}
+
+
+
+

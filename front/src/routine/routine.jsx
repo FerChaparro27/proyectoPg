@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, TextField, Typography, Accordion, AccordionSummary, AccordionDetails, Grid, Paper, CircularProgress, Button, Dialog, DialogActions, DialogContent, DialogTitle, MenuItem, Select } from '@mui/material';
+import {TextField, Typography, Accordion, AccordionSummary, AccordionDetails, Grid, Paper, CircularProgress, Button, Dialog, DialogActions, DialogContent, DialogTitle, MenuItem, Select } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import NavBar from '../components/navbar/NavBar';
 import axios from 'axios';
@@ -109,16 +109,17 @@ function RoutinesByDayWithSearch() {
   };
 
   return (
-    <Container>
+    <main > 
       <NavBar />
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h2" gutterBottom style={{marginTop:'20px', marginLeft: "20px"}}>
         Rutinas de Clientes por Día
       </Typography>
       <TextField
+      style={{marginLeft: "20px", width: "60%"}}
+      className='searchField'
         label="Buscar cliente"
         variant="outlined"
         fullWidth
-        margin="normal"
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
       />
@@ -211,7 +212,7 @@ function RoutinesByDayWithSearch() {
           </Button>
         </DialogActions>
       </Dialog>
-    </Container>
+    </main>
   );
 }
 
