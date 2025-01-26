@@ -3,62 +3,84 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh; /* Ocupa toda la altura de la ventana */
-    background-color: #f5f5f5; /* Opcional, agrega un fondo para visualizar mejor */
-  }
-  
-  .boxInput {
+    height: 100vh;
+    /* Ocupa toda la altura de la ventana */
+    background-color: #f5f5f5;
+    /* Opcional, agrega un fondo para visualizar mejor */
+    padding: 0 20px;
+    /* Espaciado lateral */
+    box-sizing: border-box;
+}
+
+.boxInput {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Espaciado entre los campos */
-  }
-  
-  .textoLogueo p {
+    gap: 20px;
+    /* Espaciado entre los campos */
+    width: 100%;
+    max-width: 500px;
+}
+
+.textoLogueo p {
     font-size: 1.5rem;
     margin-bottom: 20px;
     text-align: center;
-  }
-  
-  .checkBoxLogin {
+}
+
+.checkBoxLogin {
     display: flex;
     align-items: center;
     gap: 10px;
     margin-top: 10px;
-  }
-  
-  .ingresarButton {
-    margin-top: 20px;
-    width: 300px;
-  }
-  
-  .questionsRoots ul {
+    font-size: 1rem;
+    /* Escalable */
+}
+
+.ingresarButton {
+    width: 100%;
+    /* Ocupa todo el ancho del contenedor */
+    max-width: 500px;
+    /* Límite en pantallas grandes */
+    padding: 10px 20px;
+    /* Espaciado interno */
+    font-size: 1rem;
+    /* Escalable */
+    text-align: center;
+}
+
+.questionsRoots ul {
     margin-top: 20px;
     list-style-type: none;
     padding: 0;
     text-align: center;
-  }
-  
-  .questionsRoots li {
+    font-size: 1rem;
+    /* Escalable */
+}
+
+.questionsRoots li {
     color: #6c63ff;
     cursor: pointer;
     text-decoration: underline;
-  }
-  
-  .questionsRoots li:hover {
+    font-size: 1rem;
+}
+
+.questionsRoots li:hover {
     color: #504de4;
-  }
-  
+}
+
 
 /* Media Queries */
 @media (max-width: 768px) {
     .boxInput {
         max-width: 90%;
-        margin: 0 auto; /* Centrar */
     }
 
     .ingresarButton {
         max-width: 90%;
-        margin: 0 auto; /* Centrar */
+    }
+
+    .textoLogueo p {
+        font-size: 1.5rem;
     }
 
     .questionsRoots ul {
@@ -71,61 +93,47 @@
         padding: 10px;
     }
 
-    .boxInput {
-        max-width: 100%;
-        margin: 0 auto; /* Centrar */
-    }
-
-    .ingresarButton {
-        max-width: 100%;
-        margin: 0 auto; /* Centrar */
-    }
-
-    .questionsRoots {
-        margin-top: 15px;
-    }
-
-    .questionsRoots ul {
-        gap: 5px;
-    }
-}
-
-/* Para pantallas menores a 320px */
-@media (max-width: 320px) {
-    .sectionSignIn {
-        padding: 5px;
-        min-height: auto;
-    }
-
-    .textoLogueo {
-        font-size: 16px;
-        margin-bottom: 10px;
+    .textoLogueo p {
+        font-size: 1.25rem;
     }
 
     .boxInput {
-        width: 100%;
         max-width: 100%;
-        gap: 8px;
-        margin: 0 auto; /* Centrar */
     }
 
     .ingresarButton {
-        width: 100%;
-        max-width: 100%;
-        font-size: 14px;
-        padding: 8px;
-        margin: 0 auto; /* Centrar */
-    }
-
-    .questionsRoots {
-        margin-top: 10px;
-    }
-
-    .questionsRoots ul {
-        gap: 5px;
+        font-size: 0.8rem;
+        /* Ajuste para pantallas más pequeñas */
+        padding: 6px 12px;
     }
 
     .questionsRoots li {
-        font-size: 12px;
+        font-size: 0.9rem;
     }
+}
+
+@media (max-width: 320px) {
+    .textoLogueo p {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    .ingresarButton {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+
+    .questionsRoots li {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .ingresarButton {
+        max-width: 100%;
+        /* Ajuste dinámico */
+        font-size: 0.9rem;
+        /* Escalable en pantallas pequeñas */
+        padding: 8px 16px;
+}
 }

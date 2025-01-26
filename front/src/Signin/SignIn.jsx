@@ -53,38 +53,48 @@ const SignIn = () => {
 
             <Box
                 component="form"
-                sx={{ '& > :not(style)': { m: 1, width: '500px' } }}
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '20px',
+                    width: '100%', // Ocupa todo el ancho disponible
+                    maxWidth: '500px', // Límite máximo para pantallas grandes
+                    margin: '0 auto', // Centrado
+                    padding: '0 20px', // Espaciado en pantallas pequeñas
+                }}
                 noValidate
                 autoComplete="off"
-                className='boxInput'
             >
-                <TextField 
-                    id="outlined-basic" 
-                    label="Correo Electronico" 
-                    variant="outlined" 
-                    required 
+                <TextField
+                    id="outlined-basic"
+                    label="Correo Electrónico"
+                    variant="outlined"
+                    required
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)} // Almacenamos el email
+                    onChange={(e) => setEmail(e.target.value)}
+                    fullWidth
                 />
                 <TextField
-                    id="outlined-password-input" 
-                    label="Contraseña" 
-                    variant="outlined" 
-                    required 
+                    id="outlined-password-input"
+                    label="Contraseña"
+                    variant="outlined"
+                    required
                     type={verContraseña ? 'text' : 'password'}
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)} // Almacenamos la contraseña
+                    onChange={(e) => setPassword(e.target.value)}
                     InputProps={{
                         endAdornment: (
                             <InputAdornment position="end">
                                 <IconButton onClick={handleClickShowPassword} edge="end">
                                     {verContraseña ? <VisibilityOff /> : <Visibility />}
-                                </IconButton> 
+                                </IconButton>
                             </InputAdornment>
                         ),
                     }}
+                    fullWidth
                 />
             </Box>
+
 
             {error && <p style={{ color: 'red' }}>{error}</p>}  {/* Mostrar mensaje de error si lo hay */}
 
@@ -95,8 +105,15 @@ const SignIn = () => {
                 <p>Recordame</p>
             </div>
 
-            <Stack spacing={2} direction="row">
-                <Button variant="contained" className='ingresarButton' onClick={handleLogin}>INGRESAR</Button>
+            <Stack spacing={2} direction="row" sx={{ width: '100%', maxWidth: '500px', margin: '0 auto' }}>
+                <Button
+                    variant="contained"
+                    className='ingresarButton'
+                    onClick={handleLogin}
+                    fullWidth
+                >
+                    INGRESAR
+                </Button>
             </Stack>
 
             <div className="questionsRoots">
