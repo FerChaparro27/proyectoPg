@@ -26,7 +26,7 @@ const navLinks = [
     {
         title: 'Cerrar sesión', path: "/" // No tiene una ruta, solo para activar el diálogo
     }
-]
+];
 
 export default function NavBar() {
     const navigate = useNavigate();
@@ -36,40 +36,41 @@ export default function NavBar() {
 
     const returnHomeTouch = () => {
         navigate("/home");
-    }
+    };
 
     const handleDialogClose = () => {
         setDialogOpen(false); // Cierra el diálogo
-    }
+    };
 
     const handleLogoutConfirm = () => {
-        // Aquí puedes agregar la lógica para cerrar sesión, como limpiar el token.
         console.log("Cerrando sesión...");
         setDialogOpen(false); // Cierra el diálogo
         navigate("/"); // Redirige a la página de inicio
-    }
+    };
 
     const handleLogoutClick = () => {
         setDialogOpen(true); // Abre el diálogo de confirmación
-    }
+    };
 
     return (
         <>
             <AppBar position="relative" className="navBar">
                 <Toolbar>
-
-                    <Box sx={{ display: { xs: 'flex', sm: 'none' } }}>
+                    {/* Menú hamburguesa para pantallas menores a 900px */}
+                    <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
                         <IconButton color="inherit" onClick={() => setOpen(true)}>
                             <MenuIcon />
                         </IconButton>
                     </Box>
 
+                    {/* Título/logo siempre visible */}
                     <Typography variant="h3" sx={{ flexGrow: 1, cursor: 'pointer' }} onClick={returnHomeTouch}>
                         ADN
                     </Typography>
 
-                    <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-                        {navLinks.map(item => (
+                    {/* Opciones del menú (solo visibles si la pantalla es mayor o igual a 900px) */}
+                    <Box sx={{ display: { xs: 'none', md: 'block' } }}>
+                        {navLinks.map((item) => (
                             <Button
                                 color="inherit"
                                 key={item.title}
@@ -81,15 +82,15 @@ export default function NavBar() {
                             </Button>
                         ))}
                     </Box>
-
                 </Toolbar>
             </AppBar>
 
+            {/* Drawer para menú hamburguesa */}
             <Drawer
                 open={open}
                 anchor="left"
                 onClose={() => setOpen(false)}
-                sx={{ display: { xs: 'flex', sm: 'none' } }}
+                sx={{ display: { xs: 'flex', md: 'none' } }} // Solo visible en pantallas menores a 900px
             >
                 <NavListDrawer navLinks={navLinks} />
             </Drawer>
@@ -116,7 +117,7 @@ export default function NavBar() {
                     </Button>
                 </DialogActions>
             </Dialog>
-
         </>
     );
 }
+

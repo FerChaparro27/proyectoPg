@@ -1,16 +1,47 @@
-.cardStyle{
-    margin-top: 20px;
-    display:flex;
-    width: 45%;
-    box-shadow: 2px 2px 5px rgba(0, 5, 68, 0.788);
-}
-.boxAct{
+/* Contenedor principal de las actividades */
+.boxAct {
     display: flex;
-    flex-wrap: wrap; /* Permite que los elementos se envuelvan */
-    gap: 8px; /* Espaciado entre los elementos */
-    align-items: center; /* Centra verticalmente los elementos */
-    width: 100%; /* Asegúrate de que ocupe el ancho del contenedor */
-    justify-content: center; /* Centra los elementos horizontalmente */
-    
+    flex-wrap: wrap; /* Permite que las tarjetas se envuelvan en filas */
+    gap: 16px; /* Espaciado entre las tarjetas */
+    justify-content: center; /* Centrar las tarjetas horizontalmente */
+    align-items: center; /* Centrar las tarjetas verticalmente */
+    padding: 20px; /* Espaciado interno */
+    width: 100%; /* Asegúrate de que ocupe todo el ancho del contenedor */
 }
+
+/* Estilo de las tarjetas */
+.cardStyle {
+    width: 100%; /* Por defecto, ocupa todo el ancho disponible */
+    max-width: 300px; /* Tamaño máximo de las tarjetas */
+    box-shadow: 2px 2px 5px rgba(0, 5, 68, 0.788);
+    border-radius: 10px; /* Bordes redondeados */
+    overflow: hidden; /* Asegura que el contenido no sobresalga */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto al pasar el cursor por encima de una tarjeta */
+.cardStyle:hover {
+    transform: translateY(-5px);
+    box-shadow: 4px 4px 10px rgba(0, 5, 68, 0.8);
+}
+
+/* Responsividad */
+@media (min-width: 320px) and (max-width: 600px) {
+    .cardStyle {
+        max-width: 90%; /* Las tarjetas ocupan casi todo el ancho en móviles */
+    }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+    .cardStyle {
+        max-width: 45%; /* Las tarjetas ocupan la mitad del ancho en tablets */
+    }
+}
+
+@media (min-width: 901px) {
+    .cardStyle {
+        max-width: 30%; /* Las tarjetas ocupan un tercio del ancho en pantallas grandes */
+    }
+}
+
 
