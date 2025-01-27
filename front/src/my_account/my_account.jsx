@@ -9,33 +9,37 @@ export default function MyAccount() {
     localStorage.getItem('profileImage') || '/static/images/avatar/1.jpg'
   );
   const [name, setName] = useState('');
-  const [surname, setSurname] = useState('');
-  const [email, setEmail] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [country, setCountry] = useState('');
+  const [lastname, setLastname] = useState('');
+  const [mail, setMail] = useState('');
+  const [phone, setPhone] = useState(localStorage.getItem('phone') || ''); // Phone number
+  const [nationality, setNationality] = useState(localStorage.getItem('nationality') || ''); // Nationality
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchUserData = async () => {
       try {
         const response = await fetch('http://127.0.0.1:8000/api/user'); 
         if (!response.ok) {
-          throw new Error('Failed to fetch user data');
+          throw new Error(`Failed to fetch user data: ${response.status}`);
         }
 
         const userData = await response.json();
-        console.log('Fetched user data:', userData); // Agregado para verificar los datos
+        console.log('Fetched user data:', userData);
 
-        setName(userData.name || '');
-        setSurname(userData.surname || '');
-        setEmail(userData.email || '');
-        setPhoneNumber(userData.phoneNumber || '');
-        setCountry(userData.country || '');
-
-        if (!localStorage.getItem('profileImage')) {
-          setImageSrc(userData.profileImage || '/static/images/avatar/1.jpg');
+        if (userData && userData.name && userData.lastname && userData.mail) {
+          setName(userData.name);
+          setLastname(userData.lastname);
+          setMail(userData.mail);
+          if (!localStorage.getItem('profileImage')) {
+            setImageSrc(userData.profileImage || '/static/images/avatar/1.jpg');
+          }
+        } else {
+          console.error('Invalid user data structure:', userData);
         }
       } catch (error) {
         console.error('Error fetching user data:', error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -54,6 +58,32 @@ export default function MyAccount() {
       reader.readAsDataURL(file);
     }
   };
+
+  const handlePhoneChange = (event) => {
+    setPhone(event.target.value);
+  };
+
+  const handleNationalityChange = (event) => {
+    setNationality(event.target.value);
+  };
+
+  const handleSaveChanges = () => {
+    // Save phone number and nationality to localStorage
+    localStorage.setItem('phone', phone);
+    localStorage.setItem('nationality', nationality);
+    alert("Changes saved successfully!");
+  };
+
+  if (isLoading) {
+    return (
+      <main>
+        <NavBar />
+        <Typography variant="h6" style={{ textAlign: 'center', marginTop: '20px' }}>
+          Loading user data...
+        </Typography>
+      </main>
+    );
+  }
 
   return (
     <main>
@@ -99,10 +129,10 @@ export default function MyAccount() {
             style={{ marginBottom: '16px' }}
           />
           <TextField
-            label="Surname"
+            label="Last Name"
             variant="outlined"
             fullWidth
-            value={surname}
+            value={lastname}
             disabled
             style={{ marginBottom: '16px' }}
           />
@@ -114,7 +144,7 @@ export default function MyAccount() {
             label="Email"
             variant="outlined"
             fullWidth
-            value={email}
+            value={mail}
             disabled
             style={{ marginBottom: '16px' }}
           />
@@ -126,22 +156,31 @@ export default function MyAccount() {
             label="Phone Number"
             variant="outlined"
             fullWidth
-            value={phoneNumber}
-            disabled
+            value={phone}
+            onChange={handlePhoneChange}
             style={{ marginBottom: '16px' }}
           />
 
           <Typography variant="h6" gutterBottom>
-            Country:
+            Nationality:
           </Typography>
           <TextField
-            label="Country"
+            label="Nationality"
             variant="outlined"
             fullWidth
-            value={country}
-            disabled
+            value={nationality}
+            onChange={handleNationalityChange}
             style={{ marginBottom: '16px' }}
           />
+
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleSaveChanges}
+            style={{ marginTop: '16px' }}
+          >
+            Save Changes
+          </Button>
         </div>
       </div>
     </main>
