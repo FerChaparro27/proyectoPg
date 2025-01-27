@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import NavBar from '../components/navbar/NavBar';
 import { Avatar, IconButton, TextField, Typography, Button } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
@@ -8,43 +8,11 @@ export default function MyAccount() {
   const [imageSrc, setImageSrc] = useState(() =>
     localStorage.getItem('profileImage') || '/static/images/avatar/1.jpg'
   );
-  const [name, setName] = useState('');
-  const [lastname, setLastname] = useState('');
-  const [mail, setMail] = useState('');
+  const [name, setName] = useState(localStorage.getItem('name') || ''); // Name from localStorage
+  const [lastname, setLastname] = useState(localStorage.getItem('lastname') || ''); // Lastname from localStorage
+  const [mail, setMail] = useState(localStorage.getItem('mail') || ''); // Mail from localStorage
   const [phone, setPhone] = useState(localStorage.getItem('phone') || ''); // Phone number
   const [nationality, setNationality] = useState(localStorage.getItem('nationality') || ''); // Nationality
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const response = await fetch('http://127.0.0.1:8000/api/user'); 
-        if (!response.ok) {
-          throw new Error(`Failed to fetch user data: ${response.status}`);
-        }
-
-        const userData = await response.json();
-        console.log('Fetched user data:', userData);
-
-        if (userData && userData.name && userData.lastname && userData.mail) {
-          setName(userData.name);
-          setLastname(userData.lastname);
-          setMail(userData.mail);
-          if (!localStorage.getItem('profileImage')) {
-            setImageSrc(userData.profileImage || '/static/images/avatar/1.jpg');
-          }
-        } else {
-          console.error('Invalid user data structure:', userData);
-        }
-      } catch (error) {
-        console.error('Error fetching user data:', error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchUserData();
-  }, []);
 
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
@@ -59,6 +27,18 @@ export default function MyAccount() {
     }
   };
 
+  const handleNameChange = (event) => {
+    setName(event.target.value);
+  };
+
+  const handleLastnameChange = (event) => {
+    setLastname(event.target.value);
+  };
+
+  const handleMailChange = (event) => {
+    setMail(event.target.value);
+  };
+
   const handlePhoneChange = (event) => {
     setPhone(event.target.value);
   };
@@ -68,22 +48,14 @@ export default function MyAccount() {
   };
 
   const handleSaveChanges = () => {
-    // Save phone number and nationality to localStorage
+    // Save all data to localStorage
+    localStorage.setItem('name', name);
+    localStorage.setItem('lastname', lastname);
+    localStorage.setItem('mail', mail);
     localStorage.setItem('phone', phone);
     localStorage.setItem('nationality', nationality);
     alert("Changes saved successfully!");
   };
-
-  if (isLoading) {
-    return (
-      <main>
-        <NavBar />
-        <Typography variant="h6" style={{ textAlign: 'center', marginTop: '20px' }}>
-          Loading user data...
-        </Typography>
-      </main>
-    );
-  }
 
   return (
     <main>
@@ -125,7 +97,7 @@ export default function MyAccount() {
             variant="outlined"
             fullWidth
             value={name}
-            disabled
+            onChange={handleNameChange}
             style={{ marginBottom: '16px' }}
           />
           <TextField
@@ -133,7 +105,7 @@ export default function MyAccount() {
             variant="outlined"
             fullWidth
             value={lastname}
-            disabled
+            onChange={handleLastnameChange}
             style={{ marginBottom: '16px' }}
           />
 
@@ -145,7 +117,7 @@ export default function MyAccount() {
             variant="outlined"
             fullWidth
             value={mail}
-            disabled
+            onChange={handleMailChange}
             style={{ marginBottom: '16px' }}
           />
 
