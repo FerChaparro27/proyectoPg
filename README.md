@@ -1,6 +1,6 @@
 # Gym Management System
 
-![Universidad Nacional de Rafaela]("front/src/assets/Enc-UNRAF-web-3.png")
+![Universidad Nacional de Rafaela](front/src/assets/Enc-UNRAF-web-3.png)
 
 ## Descripción del Proyecto
 
