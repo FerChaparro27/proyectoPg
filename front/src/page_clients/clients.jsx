@@ -34,7 +34,7 @@ export default function Clients() {
         <main>
             <NavBar />
             <div className="createClientButton">
-                <Button variant="contained" onClick={touch} style={{width:'95%', marginBottom:'20px', marginLeft:'20px'}}>Añadir cliente</Button>
+                <Button variant="contained" onClick={touch} style={{width:'95%', marginBottom:'20px'}}>Añadir cliente</Button>
             </div>
             <Typography variant="h2" className="principalTitle">Clientes</Typography>
             <section className="infoGrids">
